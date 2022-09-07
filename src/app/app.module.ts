@@ -7,6 +7,7 @@ import { CabeceraComponent } from './cabecera/cabecera.component';
 import { CuerpoComponent } from './cuerpo/cuerpo.component';
 import { FooterComponent } from './footer/footer.component';
 import { NavegacionComponent } from './navegacion/navegacion.component';
+import { UnionComponent } from './union/union.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { NavegacionComponent } from './navegacion/navegacion.component';
     CabeceraComponent,
     CuerpoComponent,
     FooterComponent,
-    NavegacionComponent
+    NavegacionComponent,
+    UnionComponent
   ],
   imports: [
     BrowserModule,
