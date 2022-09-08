@@ -1,0 +1,13 @@
+.bannermodf{
+    min-height: 50vh;
+    position: relative;
+    border-bottom-left-radius: 20%;
+    
+    border-top-right-radius: 20%;
+}
+
+.perfilactual{
+    position:absolute;
+    margin-left: 5%;
+    bottom: -5%;
+}
