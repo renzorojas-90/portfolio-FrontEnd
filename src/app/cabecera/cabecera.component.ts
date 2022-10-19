@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PorfolioService } from '../servicios/porfolio.service';
 
 @Component({
   selector: 'app-cabecera',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CabeceraComponent implements OnInit {
 
-  constructor() { }
+  prueba:any;
+  constructor(private datosPorfolio:PorfolioService) { }
 
   ngOnInit(): void {
+    this.datosPorfolio.obtenerDatos().subscribe(data =>{
+      this.prueba = data;
+    });
+
   }
 
 }

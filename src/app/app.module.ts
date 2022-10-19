@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -8,6 +9,9 @@ import { CuerpoComponent } from './cuerpo/cuerpo.component';
 import { FooterComponent } from './footer/footer.component';
 import { NavegacionComponent } from './navegacion/navegacion.component';
 import { UnionComponent } from './union/union.component';
+import { EncabezadoComponent } from './componentes/encabezado/encabezado.component';
+import { AcercaDeComponent } from './componentes/acerca-de/acerca-de.component';
+
 
 @NgModule({
   declarations: [
@@ -16,11 +20,14 @@ import { UnionComponent } from './union/union.component';
     CuerpoComponent,
     FooterComponent,
     NavegacionComponent,
-    UnionComponent
+    UnionComponent,
+    EncabezadoComponent,
+    AcercaDeComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
