@@ -1,5 +1,77 @@
 {
-    "nombre" : "renzo",
-    "apellido": "rojas",
-    "titulo": "informatico"
-}
+    "nombre": "Renzo Jose",
+    "apellido": "Rojas Quezada",
+    "fotoPerfil": "./assets/imagenes/perfilren.jpg",
+    "tituloDesarrollador": "programador Jr full Stack",
+    "educacion": [
+      {
+        "idEducacion": 1,
+        "nombreCarrera": "informatica",
+        "nombreInstitucion": "UDO",
+        "logoEducacion": "LOgo udo",
+        "periodo": 2018,
+        "tituloEducacion": "Lic en Informatica",
+        "certificado": "foto totulo"
+      }
+    ],
+    "experiencia": [
+      {
+        "idExperiencia": "1",
+        "nombreEmpresa": "aeropuerto",
+        "logoLaboral": "logo aeropuerto",
+        "tituloPuesto": "ayudante sistemas",
+        "periodo": "2017",
+        "Descripcion": "backup de datos empresariales"
+      }
+    ],
+    "proyectos": [
+      {
+        "idProyecto": "1",
+        "nombre": "avcaRRHH",
+        "fechaRealizado": "2018",
+        "descripcion": "Proyecto de Tesis",
+        "linkEvidencia": "link a proyecto"
+      }
+    ],
+    "tecnologias": [
+      {
+        "idTecnologia": "1",
+        "nombre": "HTML",
+        "logo": "logo html",
+        "gradoDominio": 50
+      },
+      {
+        "idTecnologia": "2",
+        "nombre": "javascript",
+        "logo": "logojavascript ",
+        "gradoDominio": 50
+      },
+      {
+        "idTecnologia": "3",
+        "nombre": "CSS",
+        "logo": "logoCSS",
+        "gradoDominio": 50
+      }
+    ],
+
+    "redesSociales": [
+      {
+        "idRedesSocial": "1",
+        "nombre": "facebook",
+        "logo": "./assets/imagenes/meta.png"
+      },
+      {
+        "idRedesSocial": "2",
+        "nombre": "instagram",
+        "logo": "./assets/imagenes/instagram.jpg"
+      },
+      {
+        "idRedesSocial": "3",
+        "nombre": "linkdn",
+        "logo": "./assets/imagenes/linkedln.png"
+      }
+
+    ]
+    
+
+  }

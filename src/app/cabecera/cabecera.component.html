@@ -1,23 +1,14 @@
 
-    <!-- header  -->
-    <h1>{{prueba.nombre}}</h1>
-    <h1>{{prueba.apellido}}</h1>
-    <h1>{{prueba.titulo}}</h1>
+    <!-- cabecera  -->
+    
 
-    <h1>Prueba de ensamble nuevo</h1>
     <div class="container">
         <nav class="navbar navbar-light  ">
          <a class="navbar-brand" href="#"><img src="assets/imagenes/argprograma.png" class="" alt="banner" width="200" height="60"></a>
          <ul class="nav justify-content-end">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#"><img src="assets/imagenes/meta.png" class="" alt="facebook" width="44" height="44" ></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#"><img src="assets/imagenes/instagram.jpg" class="" alt="instagram" width="40" height="40" ></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#"><img src="assets/imagenes/linkedln.png" class="" alt="instagram" width="40" height="40" ></a>
-            </li>            
+            <li *ngFor=" let busqueda of prueba.redesSociales" class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#"><img src={{busqueda.logo}} alt="facebook" width="44" height="44" ></a>
+            </li>           
           </ul>   
           <form class="">
             <button class="btn btn-outline-primary" type="submit">Login</button>
@@ -26,12 +17,12 @@
     </div>
     
         
-    <!-- banner  -->
+    <!-- banner y perfil -->
   
    <div class="container">
     <div class="bannermodf" style="background-image: url('assets/imagenes/banner1.jpg');">
       <div class="perfilactual" style="width: 20rem;">
-        <img src="assets/imagenes/perfilren.jpg" class="rounded-circle" alt="imagen perfil" width="200" height="200">
+        <img src={{prueba.fotoPerfil}} class="rounded-circle" alt="imagen perfil" width="200" height="200">
       </div>
       
         <h1 class="text-white text-center">Portfolio  tecnologico</h1>
@@ -46,9 +37,8 @@
     <div class="card" style="width: 15rem;">
        
         <div class="card-body">
-          <h5 class="card-title">Renzo Rojas</h5>
-          <p class="card-text">Informatico, Programador Junior</p>
-          <p class="card-text">Udo</p>
+          <h5 class="card-title">{{prueba.nombre  + " " + prueba.apellido}} </h5>
+          <p class="card-text">{{prueba.tituloDesarrollador}}</p>
           <a href="#" class="btn btn-primary">Informacion de contacto</a>
         </div>
       </div>

@@ -10,6 +10,7 @@ import { AcercaDeComponent } from './componentes/acerca-de/acerca-de.component';
 import { ExperienciasComponent } from './componentes/experiencias/experiencias.component';
 import { EducacionComponent } from './componentes/educacion/educacion.component';
 import { TecnologiasComponent } from './componentes/tecnologias/tecnologias.component';
+import { ProyectosComponent } from './componentes/proyectos/proyectos.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { TecnologiasComponent } from './componentes/tecnologias/tecnologias.comp
     AcercaDeComponent,
     ExperienciasComponent,
     EducacionComponent,
-    TecnologiasComponent
+    TecnologiasComponent,
+    ProyectosComponent
   ],
   imports: [
     BrowserModule,
