@@ -12,7 +12,7 @@ export class PorfolioService {
 
   obtenerDatos():Observable<any>{
 
-    return this.http.get('./assets/data/data.json'); 
+    return this.http.get('http://localhost:8080/ver/personas'); 
 
   }
 }
