@@ -1,10 +1,47 @@
 <h1>conectando con la api de springboot</h1>
-<h1></h1>
 
-<h1 *ngFor=" let busqueda of prueba">
-  <a>{{busqueda.nombre}}</a>
-  <a>{{busqueda.apellido}}</a>
+<h1>
+  <a>{{prueba.nombre}}</a><br>
+  <a>{{prueba.apellido}}</a>
 </h1>
+  
+<h1 *ngFor=" let lista_edu of prueba.listaEducacion">
+  <a>{{lista_edu.nombreCarrera}}</a><br>
+  <a>{{lista_edu.institucionNombre}}</a><br>
+</h1>
+<hr>
+
+<h1 *ngFor=" let lista_exp of prueba.listaExperiencia">
+  <a>{{lista_exp.nombreEmpresa}}</a><br>
+  <a>{{lista_exp.tituloPuesto}}</a><br>
+  </h1>
+    <hr>
+
+<h1 *ngFor=" let lista_pro of prueba.listaProyecto">
+  <a>{{lista_pro.nombre}}</a><br>
+  <a>{{lista_pro.descripcion}}</a><br>
+  </h1>
+    <hr>
+
+<h1 *ngFor=" let lista_red of prueba.listaRedes">
+  <a>{{lista_red.link}}</a><br>
+  <a>{{lista_red.logo}}</a><br>
+  </h1>
+    <hr>
+
+<h1 *ngFor=" let lista_tec of prueba.listaTecnologia">
+  <a>{{lista_tec.nombreTecno}}</a><br>
+  <a>{{lista_tec.logoTecno}}</a><br>
+  </h1>
+    <hr>
+
+<h1 *ngFor=" let lista_idi of prueba.listaIdioma">
+  <a>{{lista_idi.nombre}}</a><br>
+  <a>{{lista_idi.nivelEscritura}}</a><br>
+  </h1>
+
+
+
 
     <!-- cabecera  -->
     
