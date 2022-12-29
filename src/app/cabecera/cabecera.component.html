@@ -1,72 +1,26 @@
-<h1>conectando con la api de springboot</h1>
-
-<h1>
-  <a>{{prueba.nombre}}</a><br>
-  <a>{{prueba.apellido}}</a>
-</h1>
-  
-<h1 *ngFor=" let lista_edu of prueba.listaEducacion">
-  <a>{{lista_edu.nombreCarrera}}</a><br>
-  <a>{{lista_edu.institucionNombre}}</a><br>
-</h1>
-<hr>
-
-<h1 *ngFor=" let lista_exp of prueba.listaExperiencia">
-  <a>{{lista_exp.nombreEmpresa}}</a><br>
-  <a>{{lista_exp.tituloPuesto}}</a><br>
-  </h1>
-    <hr>
-
-<h1 *ngFor=" let lista_pro of prueba.listaProyecto">
-  <a>{{lista_pro.nombre}}</a><br>
-  <a>{{lista_pro.descripcion}}</a><br>
-  </h1>
-    <hr>
-
-<h1 *ngFor=" let lista_red of prueba.listaRedes">
-  <a>{{lista_red.link}}</a><br>
-  <a>{{lista_red.logo}}</a><br>
-  </h1>
-    <hr>
-
-<h1 *ngFor=" let lista_tec of prueba.listaTecnologia">
-  <a>{{lista_tec.nombreTecno}}</a><br>
-  <a>{{lista_tec.logoTecno}}</a><br>
-  </h1>
-    <hr>
-
-<h1 *ngFor=" let lista_idi of prueba.listaIdioma">
-  <a>{{lista_idi.nombre}}</a><br>
-  <a>{{lista_idi.nivelEscritura}}</a><br>
-  </h1>
-
-
-
-
     <!-- cabecera  -->
     
-<!--
-    <div class="container">
-        <nav class="navbar navbar-light  ">
+<div class="container">
+   <nav class="navbar navbar-light  ">
          <a class="navbar-brand" href="#"><img src="assets/imagenes/argprograma.png" class="" alt="banner" width="200" height="60"></a>
          <ul class="nav justify-content-end">
-            <li *ngFor=" let busqueda of prueba.redesSociales" class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#"><img src={{busqueda.logo}} alt="facebook" width="44" height="44" ></a>
+            <li *ngFor="let lista_red of prueba.listaRedes" class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#"><img src="assets/imagenes/{{lista_red.logo}}" alt="facebook" width="44" height="44" ></a>
             </li>           
           </ul>   
-          <form class="">
-            <button class="btn btn-outline-primary" type="submit">Login</button>
-          </form>
-        </nav>
-    </div>
-  mientras  -->   
+                 
+
+          <app-login></app-login>         
+          
+  </nav>
+</div>   
         
     <!-- banner y perfil -->
-  <!--
+
    <div class="container">
     <div class="bannermodf" style="background-image: url('assets/imagenes/banner1.jpg');">
       <div class="perfilactual" style="width: 20rem;">
-        <img src={{prueba.fotoPerfil}} class="rounded-circle" alt="imagen perfil" width="200" height="200">
+        <img src="assets/imagenes/{{prueba.fotoPerfil}}" class="rounded-circle" alt="imagen perfil" width="200" height="200">
       </div>
       
         <h1 class="text-white text-center">Portfolio  tecnologico</h1>
@@ -74,8 +28,7 @@
       
     </div>
    </div>
-   mientras  -->
-<!--
+
    <hr>
 <div class="container">
     <div class="card" style="width: 15rem;">
@@ -87,4 +40,17 @@
         </div>
       </div>
 </div>
-mientras  -->
+
+<hr>
+  <!-- Acerca de y lo demas  -->
+<div class="container">
+    <h1 class="display-6">Acerca de</h1> 
+    <div class="d-flex bd-highlight mb-3">
+        <div class="me-auto p-2 bd-highlight">
+          <p>{{prueba.about}}</p>
+        </div>
+         <div class="p-2 bd-highlight">
+          <button type="button" class="btn btn-outline-primary"><i class="bi bi-pen-fill"></i></button>
+        </div>     
+    </div>
+    <hr>

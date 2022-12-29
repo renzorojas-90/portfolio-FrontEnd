@@ -15,4 +15,7 @@ export class PorfolioService {
     return this.http.get('http://localhost:8080/ver/persona/1'); 
 
   }
+
+  
+
 }

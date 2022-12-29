@@ -1,16 +1,19 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CabeceraComponent } from './cabecera/cabecera.component';
 import { EncabezadoComponent } from './componentes/encabezado/encabezado.component';
-import { AcercaDeComponent } from './componentes/acerca-de/acerca-de.component';
 import { ExperienciasComponent } from './componentes/experiencias/experiencias.component';
 import { EducacionComponent } from './componentes/educacion/educacion.component';
 import { TecnologiasComponent } from './componentes/tecnologias/tecnologias.component';
 import { ProyectosComponent } from './componentes/proyectos/proyectos.component';
+import { LoginComponent } from './componentes/login/login.component';
+import { PortfolioComponent } from './componentes/portfolio/portfolio.component';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AutenticacionService } from './servicios/autenticacion.service';
+import { InterceptorService } from './servicios/interceptor.service';
 
 
 @NgModule({
@@ -18,18 +21,23 @@ import { ProyectosComponent } from './componentes/proyectos/proyectos.component'
     AppComponent,
     CabeceraComponent,
     EncabezadoComponent,
-    AcercaDeComponent,
     ExperienciasComponent,
     EducacionComponent,
     TecnologiasComponent,
-    ProyectosComponent
+    ProyectosComponent,
+    LoginComponent,
+    PortfolioComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    AutenticacionService,
+    {provide: HTTP_INTERCEPTORS, useClass:InterceptorService, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

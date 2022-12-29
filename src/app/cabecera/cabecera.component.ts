@@ -8,13 +8,12 @@ import { PorfolioService } from '../servicios/porfolio.service';
 })
 export class CabeceraComponent implements OnInit {
 
-  prueba:any;    //asi carga el objeto vacio antes de el llamado a la pagina
+  prueba:any;    
   constructor(private datosPorfolio:PorfolioService) { }
 
   ngOnInit(): void {
     this.datosPorfolio.obtenerDatos().subscribe(data =>{
       this.prueba = data;
-      console.log(data)
     });
 
   }
