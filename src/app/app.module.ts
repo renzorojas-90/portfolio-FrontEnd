@@ -14,6 +14,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AutenticacionService } from './servicios/autenticacion.service';
 import { InterceptorService } from './servicios/interceptor.service';
+import { PorfolioService } from './servicios/porfolio.service';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import { InterceptorService } from './servicios/interceptor.service';
   ],
   providers: [
     AutenticacionService,
+    PorfolioService,
     {provide: HTTP_INTERCEPTORS, useClass:InterceptorService, multi: true}
   ],
   bootstrap: [AppComponent]

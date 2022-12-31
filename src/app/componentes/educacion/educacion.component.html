@@ -1,114 +1,190 @@
+<div class="row">
+  <div class="col-auto me-auto">
+    <h1 class="display-6">Educacion</h1>
+  </div>
+  <div class="col-auto">
+    <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modal-add">
+      <i class="bi bi-plus-lg"></i>
+    </button>
+  </div>
 
- <h1 class="display-6">Educacion</h1>
+</div>
+ 
 
- <div *ngFor=" let lista_edu of educaciones.listaEducacion">
-    <div class="d-flex">
-            <div class="card mb-3 me-auto" style="max-width: 540px;">
-                  <div class="row g-0">
-                    <div class="col-md-4">
+ <div class="m-2" *ngFor=" let lista_edu of educaciones.listaEducacion">
+    <div class="d-flex border p-2" >
+           
+            <div class="col-2">
                       <img src="assets/imagenes/{{lista_edu.logoInstituto}}" height="30" width="50" class="img-fluid rounded-start" alt="...">
-                    </div>
-                    <div class="col-md-8">
-                      <div class="card-body">
-                        <h5 class="card-title">Carrera: {{lista_edu.nombreCarrera}}</h5>
-                        <p class="card-text">Graduacion: {{lista_edu.periodo}} </p>
-                        <p class="card-text">Institucion : {{lista_edu.institucionNombre}} </p>
-                        <p class="card-text">Titulo : {{lista_edu.tituloEducacion}} </p>
-                              <!-- Button modal certificado-->
-                        <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modalcod">
-                          Certificado
-                        </button>
-
-                        <!-- Modal -->
-                        <div class="modal fade" id="modalcod">
-                          <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                  <h1 class="modal-title fs-5" id="modalcodLabel">Certificado</h1>
-                                </div>
-                                <div class="modal-body">
-                                  <img src="assets/imagenes/{{lista_edu.certificado}}" class="img-fluid" alt="...">
-                                </div> 
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                                </div>
-                            </div>
-                          </div>
-                        </div>
-
-                      </div>
-                    </div>
-                  </div>
             </div>
-  
-            <!-- Button modal editar-->        
-            <div>
-              <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modaledit" >
-                <i class="bi bi-pen-fill"></i>
+
+            <div class="col-2">
+              <p>
+                Institucion : {{lista_edu.institucionNombre}} <br>
+                Carrera: {{lista_edu.nombreCarrera}} <br>
+              </p>
+            </div>
+            <div class="col-3">
+              <p>
+                Graduacion: {{lista_edu.periodo}} <br>
+                Titulo : {{lista_edu.tituloEducacion}} 
+              </p>
+            </div>
+
+            <!-- Button modal certificado-->
+            <div class="col-3 ms-1">  
+              <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modalcod">
+                              Certificado
               </button>
             </div>
 
-
-            <!-- Modaledit -->
-            <div class="modal fade" id="modaledit">
-                    <div class="modal-dialog">
-                      <form action="">
-                       <div class="modal-content">
-                          <div class="modal-header">
-                            <h1 class="modal-title">Editar Educacion</h1>
-                          </div>
-                          <div class="modal-body">
-                            <div class="mb-3 row">
-                              <label for="" class="col-sm-2 col-form-label">Nombre carrera:</label>
-                              <div class="col-sm-10">
-                                  <input type="text" class="form-control" name="nombreCarrera" value="{{lista_edu.nombreCarrera}}">
-                               </div>
-                            </div>
-                            <div class="mb-3 row">
-                              <label for="" class="col-sm-2 col-form-label">Institucion: </label>
-                              <div class="col-sm-10">
-                                  <input type="text" class="form-control" value="{{lista_edu.institucionNombre}}">                                   
-                              </div>
-                            </div>                            
-                            <div class="mb-3 row">
-                              <label for="" class="col-sm-2 col-form-label">Titulo: </label>
-                              <div class="col-sm-10">
-                                  <input type="text"  class="form-control" value="{{lista_edu.tituloEducacion}}">
-                               </div>
-                              </div>
-                              <div class="mb-3 row">
-                                <label for="" class="col-sm-2 col-form-label">Logo Institucion: </label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control"  value="{{lista_edu.logoInstituto}}">
-                                 </div>
-                                </div>
-                                <div class="mb-3 row">
-                                <label for="" class="col-sm-2 col-form-label">Año Graduacion: </label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control"  value=" {{lista_edu.periodo}}">
-                                 </div>
-                                </div>
-                                <div class="mb-3 row">
-                                <label for="" class="col-sm-2 col-form-label">Certificado: </label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control"  value="{{lista_edu.certificado}}">
-                                 </div>
-                              </div> 
-                          </div> 
-                          <div class="modal-footer">
-                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                              <button type="submit" class="btn btn-primary">Editar</button>
-                          </div>
-                       </div>
-                      </form>
+            <!-- Modal Certificado -->
+            <div class="modal fade" id="modalcod">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="modalcodLabel">Certificado</h1>
                     </div>
-                    
+                    <div class="modal-body">
+                      <img src="assets/imagenes/{{lista_edu.certificado}}" class="img-fluid" alt="...">
+                    </div> 
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+              </div>
             </div>
 
-            <div>
-              <button type="button" class="btn btn-outline-primary">
+            
+  
+            <!-- Button modal editar-->        
+            <div class="ms-1">
+              <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modaledit" >
+                <i class="bi bi-pen"></i>
+              </button>
+            </div>
+
+        <!-- Button ELiminar-->        
+            <div class="ms-1">
+              <button type="button" class="btn btn-outline-primary" (click)="onEliminarEducacion($event,educaciones.id,lista_edu.id)">
                 <i class="bi bi-x-lg"></i>
               </button>
             </div>
   </div>
  </div>
+ <hr>
+
+
+ <!-- Modal-add -->
+            <div class="modal fade" id="modal-add" tabindex="-1">
+                    <div class="modal-dialog">
+                      
+                       <div class="modal-content">
+                        <form [formGroup]="form" (ngSubmit)="onEnviarEducacion($event,educaciones.id)">
+                          <div class="modal-header">
+                            <h1 class="modal-title">Agregar Educacion</h1>
+                          </div>
+                          <div class="modal-body">
+                            <div class="mb-3 row">
+                              <label for="" class="col-sm-2 col-form-label">Nombre carrera:</label>
+                              <div class="col-sm-10">
+                                  <input type="text" formControlName="nombreCarrera" class="form-control" name="nombreCarrera">
+                               </div>
+                            </div>
+                            <div class="mb-3 row">
+                              <label for="" class="col-sm-2 col-form-label">Institucion: </label>
+                              <div class="col-sm-10">
+                                  <input type="text" formControlName="institucionNombre" class="form-control">                                   
+                              </div>
+                            </div>                            
+                            <div class="mb-3 row">
+                              <label for="" class="col-sm-2 col-form-label">Titulo: </label>
+                              <div class="col-sm-10">
+                                  <input type="text"  formControlName="tituloEducacion" class="form-control">
+                               </div>
+                              </div>
+                              <div class="mb-3 row">
+                                <label for="" class="col-sm-2 col-form-label">Logo Institucion: </label>
+                                <div class="col-sm-10">
+                                    <input type="text" formControlName="logoInstituto" class="form-control">
+                                 </div>
+                                </div>
+                                <div class="mb-3 row">
+                                <label for="" class="col-sm-2 col-form-label">Año Graduacion: </label>
+                                <div class="col-sm-10">
+                                    <input type="text" formControlName="periodo" class="form-control">
+                                 </div>
+                                </div>
+                                <div class="mb-3 row">
+                                <label for="" class="col-sm-2 col-form-label">Certificado: </label>
+                                <div class="col-sm-10">
+                                    <input type="text" formControlName="certificado" class="form-control">
+                                 </div>
+                              </div> 
+                          </div> 
+                          <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                              <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Guardar</button>
+                          </div>
+                        </form> 
+                       </div>
+                      
+                    </div>
+                    
+            </div>
+
+            <!-- Modaledit -->
+            <div class="modal fade" id="modaledit" *ngFor=" let lista_edu of educaciones.listaEducacion">
+              <div class="modal-dialog">
+                <form action="">
+                 <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title">Editar Educacion</h1>
+                    </div>
+                    <div class="modal-body">
+                      <div class="mb-3 row">
+                        <label for="" class="col-sm-2 col-form-label">Nombre carrera:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="nombreCarrera" value="{{lista_edu.nombreCarrera}}">
+                         </div>
+                      </div>
+                      <div class="mb-3 row">
+                        <label for="" class="col-sm-2 col-form-label">Institucion: </label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" value="{{lista_edu.institucionNombre}}">                                   
+                        </div>
+                      </div>                            
+                      <div class="mb-3 row">
+                        <label for="" class="col-sm-2 col-form-label">Titulo: </label>
+                        <div class="col-sm-10">
+                            <input type="text"  class="form-control" value="{{lista_edu.tituloEducacion}}">
+                         </div>
+                        </div>
+                        <div class="mb-3 row">
+                          <label for="" class="col-sm-2 col-form-label">Logo Institucion: </label>
+                          <div class="col-sm-10">
+                              <input type="text" class="form-control"  value="{{lista_edu.logoInstituto}}">
+                           </div>
+                          </div>
+                          <div class="mb-3 row">
+                          <label for="" class="col-sm-2 col-form-label">Año Graduacion: </label>
+                          <div class="col-sm-10">
+                              <input type="text" class="form-control"  value=" {{lista_edu.periodo}}">
+                           </div>
+                          </div>
+                          <div class="mb-3 row">
+                          <label for="" class="col-sm-2 col-form-label">Certificado: </label>
+                          <div class="col-sm-10">
+                              <input type="text" class="form-control"  value="{{lista_edu.certificado}}">
+                           </div>
+                        </div> 
+                    </div> 
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn btn-primary">Editar</button>
+                    </div>
+                 </div>
+                </form>
+              </div>
+              
+      </div>
