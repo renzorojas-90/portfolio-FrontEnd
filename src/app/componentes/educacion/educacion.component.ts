@@ -10,13 +10,16 @@ import { PorfolioService } from 'src/app/servicios/porfolio.service';
 })
 export class EducacionComponent implements OnInit {
 
+  
   educaciones: any;
   form: FormGroup;
+  editEducaciones: any;
 
   constructor(private datosPorfolio:PorfolioService, private formbuilder: FormBuilder, private ruta: Router) {
     
     this.form = this.formbuilder.group({
 
+       id:["",Validators.required],
        nombreCarrera:["", Validators.required],
        institucionNombre:["", Validators.required],
        logoInstituto:["", Validators.required],
@@ -26,6 +29,7 @@ export class EducacionComponent implements OnInit {
 
     })
 
+    
    }
 
   ngOnInit(): void {
@@ -38,6 +42,7 @@ export class EducacionComponent implements OnInit {
   onEnviarEducacion(event: Event, personaid:any){
     event.preventDefault;
     this.datosPorfolio.addEducacion(this.form.value,personaid).subscribe(data => {
+      console.log(data);
        this.ruta.navigate(['/portfolio']);
      })
 
@@ -52,6 +57,18 @@ export class EducacionComponent implements OnInit {
 
   }
 
+  editarEducacion(event: Event){
+    event.preventDefault;
+    console.log(this.form.value);
+    //this.datosPorfolio.edit_Educacion(this.form.value).subscribe();
+  }
+
+  TraerUnaEducacion(editeducacion:any){
+    this.datosPorfolio.buscarEducacion(editeducacion).subscribe(data=>{
+      this.editEducaciones = data;
+      console.log(data);
+    });
+  }
   
 
 }
