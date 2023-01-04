@@ -2,13 +2,13 @@
   <div class="col-auto me-auto">
     <h1 class="display-6">Educacion</h1>
   </div>
-  <!-- boton modal-add 
+  <!-- boton modal-add--> 
   <div class="col-auto">
     <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modal-add">
       <i class="bi bi-plus-lg"></i>
     </button>
   </div>
-</div>-->
+</div>
 
 
  <!-- Modal-add--> 
@@ -70,7 +70,7 @@
 </div>
  
 
- <div class="m-2" *ngFor=" let lista_edu of educaciones.listaEducacion">
+ <div class="m-2" *ngFor=" let lista_edu of educaciones?.listaEducacion">
     <div class="d-flex border p-2" >
            
             <div class="col-2">
@@ -119,7 +119,7 @@
 
 
 
-<!-- Modaledit --> 
+<!-- Modaledit-->  
             <div class="modal fade" id="modaledit" tabindex="-1">
               <div class="modal-dialog">
                  <div class="modal-content">
@@ -129,47 +129,47 @@
                     </div>
                     
                     <div class="modal-body">
-                      <input type="hidden" class="form-control"  ng-init="editEducaciones.id = id"  formControlName="id" value="{{editEducaciones.id}}">
+                      <input type="hidden" class="form-control" formControlName="id">
                       <div class="mb-3 row">
                         <label for="" class="col-sm-2 col-form-label">Nombre carrera:</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" formControlName="nombreCarrera"  value="{{editEducaciones.nombreCarrera}}">
+                            <input type="text" class="form-control" formControlName="nombreCarrera"  value="{{editEducaciones?.nombreCarrera}}">
                         </div>
                       </div>
                       <div class="mb-3 row">
                         <label for="" class="col-sm-2 col-form-label">Institucion: </label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" formControlName="institucionNombre" value="{{editEducaciones.institucionNombre}}">                                   
+                            <input type="text" class="form-control" formControlName="institucionNombre" value="{{editEducaciones?.institucionNombre}}">                                   
                         </div>
                       </div>                            
                       <div class="mb-3 row">
                         <label for="" class="col-sm-2 col-form-label">Titulo: </label>
                         <div class="col-sm-10">
-                            <input type="text"  class="form-control" formControlName="tituloEducacion" value="{{editEducaciones.tituloEducacion}}">
+                            <input type="text"  class="form-control" formControlName="tituloEducacion" value="{{editEducaciones?.tituloEducacion}}">
                          </div>
                         </div>
                         <div class="mb-3 row">
                           <label for="" class="col-sm-2 col-form-label">Logo Institucion: </label>
                           <div class="col-sm-10">
-                              <input type="text" class="form-control" formControlName="logoInstituto" value="{{editEducaciones.logoInstituto}}">
+                              <input type="text" class="form-control" formControlName="logoInstituto" value="{{editEducaciones?.logoInstituto}}">
                            </div>
                           </div>
                           <div class="mb-3 row">
                           <label for="" class="col-sm-2 col-form-label">Año Graduacion: </label>
                           <div class="col-sm-10">
-                              <input type="text" class="form-control" formControlName="periodo"  value="{{editEducaciones.periodo}}">
+                              <input type="text" class="form-control" formControlName="periodo"  value="{{editEducaciones?.periodo}}">
                            </div>
                           </div>
                           <div class="mb-3 row">
                           <label for="" class="col-sm-2 col-form-label">Certificado: </label>
                           <div class="col-sm-10">
-                              <input type="text" class="form-control" formControlName="certificado" value="{{editEducaciones.certificado}}">
+                              <input type="text" class="form-control" formControlName="certificado" value="{{editEducaciones?.certificado}}">
                            </div>
                         </div> 
                     </div> 
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                        <button type="submit" class="btn btn-primary">Editar</button>
+                        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Editar</button>
                     </div>
                   </form>
                  </div>

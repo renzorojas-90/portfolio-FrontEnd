@@ -43,7 +43,11 @@ export class EducacionComponent implements OnInit {
     event.preventDefault;
     this.datosPorfolio.addEducacion(this.form.value,personaid).subscribe(data => {
       console.log(data);
-       this.ruta.navigate(['/portfolio']);
+      
+      this.datosPorfolio.obtenerDatos().subscribe(data =>{
+        this.educaciones = data;
+      });
+
      })
 
   }
@@ -53,21 +57,44 @@ export class EducacionComponent implements OnInit {
     this.datosPorfolio.eliminarEducacion(educacion,persona).subscribe(data =>{
       console.log("data educacioncomponent.ts: " + JSON.stringify(data));
       console.log(persona);
-    })
+
+      this.datosPorfolio.obtenerDatos().subscribe(data =>{
+        this.educaciones = data;
+      });
+    });
 
   }
 
   editarEducacion(event: Event){
     event.preventDefault;
     console.log(this.form.value);
-    //this.datosPorfolio.edit_Educacion(this.form.value).subscribe();
+    this.datosPorfolio.edit_Educacion(this.form.value).subscribe(data=>{
+
+      this.datosPorfolio.obtenerDatos().subscribe(data =>{
+        this.educaciones = data;
+      });
+    });
+
+    
   }
 
   TraerUnaEducacion(editeducacion:any){
     this.datosPorfolio.buscarEducacion(editeducacion).subscribe(data=>{
       this.editEducaciones = data;
       console.log(data);
+      this.form.patchValue({
+
+        id:data.id,
+        nombreCarrera:data.nombreCarrera,
+       institucionNombre:data.institucionNombre,
+       logoInstituto:data.logoInstituto,
+       periodo:data.periodo,
+       tituloEducacion:data.tituloEducacion,
+       certificado:data.certificado
+      });
     });
+
+    
   }
   
 
