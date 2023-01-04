@@ -1,1 +1,168 @@
-<p>proyectos works!</p>
+<div class="row">
+    <div class="col-auto me-auto">
+      <h1 class="display-6">Proyectos</h1>
+    </div>
+    <!-- boton modal-add--> 
+    <div class="col-auto">
+      <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modal-add-proyecto">
+        <i class="bi bi-plus-lg"></i>
+      </button>
+    </div>
+  </div>
+  
+  
+   <!-- Modal-add--> 
+   <div class="modal fade" id="modal-add-proyecto" tabindex="-1">
+    <div class="modal-dialog">
+      
+       <div class="modal-content">
+        <form [formGroup]="form" (ngSubmit)="onEnviarItem($event,info.id)">
+          <div class="modal-header">
+            <h1 class="modal-title">Agregar Proyecto</h1>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3 row">
+              <label for="" class="col-sm-2 col-form-label">Nombre:</label>
+              <div class="col-sm-10">
+                  <input type="text" formControlName="nombre" class="form-control">
+               </div>
+            </div>
+            <div class="mb-3 row">
+              <label for="" class="col-sm-2 col-form-label">Fecha Realizado: </label>
+              <div class="col-sm-10">
+                  <input type="text" formControlName="fechaRealizado" class="form-control">                                   
+              </div>
+            </div>                            
+            <div class="mb-3 row">
+              <label for="" class="col-sm-2 col-form-label">Descripcion: </label>
+              <div class="col-sm-10">
+                  <input type="text"  formControlName="descripcion" class="form-control">
+               </div>
+              </div>
+              <div class="mb-3 row">
+                <label for="" class="col-sm-2 col-form-label">Evidencia </label>
+                <div class="col-sm-10">
+                    <input type="text" formControlName="linkEvidencia" class="form-control">
+                 </div>
+                </div>
+          </div> 
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+              <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Guardar</button>
+          </div>
+        </form> 
+       </div>
+      
+    </div>
+    
+  </div>
+   
+  
+   <div class="m-2" *ngFor=" let lista of info?.listaProyecto">
+      <div class="d-flex border p-2" >
+             
+              <div class="col-2">
+                        Imagen proyecto
+              </div>
+  
+              <div class="col-3">
+                <p>
+                  Proyecto : {{lista.nombre}} <br>
+                  fecha: {{lista.fechaRealizado}} <br>
+                </p>
+              </div>
+              <div class="col-4">
+                <p>
+                  Descripcion: {{lista.descripcion}} <br>
+                  Evidencia: {{lista.linkEvidencia}} 
+                </p>
+              </div>
+      
+              <!-- Button modal editar-->        
+              <div class="ms-1">
+                <button type="button" (click)="traerItem(lista.id)" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modaledit-proyecto" >
+                  <i class="bi bi-pen"></i>
+                </button>
+              </div>
+              
+  
+          <!-- Button ELiminar-->        
+              <div class="ms-1">
+                <button type="button" (click)="onEliminarItem($event,info.id,lista.id)" class="btn btn-outline-primary">
+                  <i class="bi bi-x-lg"></i>
+                </button>
+              </div>
+    </div>
+   </div>
+   
+  
+  
+  
+  
+  
+  <!-- Modaledit-->  
+              <div class="modal fade" id="modaledit-proyecto" tabindex="-1">
+                <div class="modal-dialog">
+                   <div class="modal-content">
+                    <form [formGroup]="form" (ngSubmit)="editarItem($event)">
+                      <div class="modal-header">
+                        <h1 class="modal-title">Editar Proyecto</h1>
+                      </div>
+                      
+                      <div class="modal-body">
+                        <input type="hidden" class="form-control" formControlName="id">
+                        <div class="mb-3 row">
+                          <label for="" class="col-sm-2 col-form-label">Nombre:</label>
+                          <div class="col-sm-10">
+                              <input type="text" class="form-control" formControlName="nombre"  value="{{infoEdit?.nombre}}">
+                          </div>
+                        </div>
+                        <div class="mb-3 row">
+                          <label for="" class="col-sm-2 col-form-label">Fecha: </label>
+                          <div class="col-sm-10">
+                              <input type="text" class="form-control" formControlName="fechaRealizado" value="{{infoEdit?.fechaRealizado}}">                                   
+                          </div>
+                        </div>                            
+                        <div class="mb-3 row">
+                          <label for="" class="col-sm-2 col-form-label">Descripcion: </label>
+                          <div class="col-sm-10">
+                              <input type="text"  class="form-control" formControlName="descripcion" value="{{infoEdit?.descripcion}}">
+                           </div>
+                          </div>
+                          <div class="mb-3 row">
+                            <label for="" class="col-sm-2 col-form-label">Evidencia: </label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" formControlName="linkEvidencia" value="{{infoEdit?.linkEvidencia}}">
+                             </div>
+                            </div> 
+                      </div> 
+                      <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                          <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Editar</button>
+                      </div>
+                    </form>
+                   </div>
+                  
+                </div>
+                
+            </div>
+  
+        
+  <!-- Modal Certificado 
+  <div class="modal fade" id="modalcod">
+    <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="modalcodLabel">Certificado</h1>
+          </div>
+          <div class="modal-body">
+            <img src="assets/imagenes/{{lista_edu.certificado}}" class="img-fluid" alt="...">
+          </div> 
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          </div>
+      </div>
+    </div>
+  </div>
+  -->
+  
