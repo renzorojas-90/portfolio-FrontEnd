@@ -33,9 +33,14 @@ export class EducacionComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    this.actualizarportfolio();
+  }
+
+  actualizarportfolio(){
     this.datosPorfolio.obtenerDatos().subscribe(data =>{
       this.educaciones = data;
     });
+
   }
 
 
@@ -43,10 +48,7 @@ export class EducacionComponent implements OnInit {
     event.preventDefault;
     this.datosPorfolio.addEducacion(this.form.value,personaid).subscribe(data => {
       console.log(data);
-      
-      this.datosPorfolio.obtenerDatos().subscribe(data =>{
-        this.educaciones = data;
-      });
+      this.actualizarportfolio();
 
      })
 
@@ -55,12 +57,7 @@ export class EducacionComponent implements OnInit {
   onEliminarEducacion(event: Event,persona: any,educacion: any){
     event.preventDefault;
     this.datosPorfolio.eliminarEducacion(educacion,persona).subscribe(data =>{
-      console.log("data educacioncomponent.ts: " + JSON.stringify(data));
-      console.log(persona);
-
-      this.datosPorfolio.obtenerDatos().subscribe(data =>{
-        this.educaciones = data;
-      });
+      this.actualizarportfolio();
     });
 
   }
@@ -69,10 +66,7 @@ export class EducacionComponent implements OnInit {
     event.preventDefault;
     console.log(this.form.value);
     this.datosPorfolio.edit_Educacion(this.form.value).subscribe(data=>{
-
-      this.datosPorfolio.obtenerDatos().subscribe(data =>{
-        this.educaciones = data;
-      });
+      this.actualizarportfolio();
     });
 
     
@@ -84,13 +78,13 @@ export class EducacionComponent implements OnInit {
       console.log(data);
       this.form.patchValue({
 
-        id:data.id,
-        nombreCarrera:data.nombreCarrera,
-       institucionNombre:data.institucionNombre,
-       logoInstituto:data.logoInstituto,
-       periodo:data.periodo,
-       tituloEducacion:data.tituloEducacion,
-       certificado:data.certificado
+         id:data.id,
+         nombreCarrera:data.nombreCarrera,
+         institucionNombre:data.institucionNombre,
+         logoInstituto:data.logoInstituto,
+         periodo:data.periodo,
+         tituloEducacion:data.tituloEducacion,
+         certificado:data.certificado
       });
     });
 
