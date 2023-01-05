@@ -12,6 +12,7 @@ export class AutenticacionService {
   currentUserSubject: BehaviorSubject<any>;
 
   obtenerSecion:any;
+ var : any;
 
   constructor(private http:HttpClient) { 
 
@@ -20,12 +21,21 @@ export class AutenticacionService {
     
   }
 
-  iniciarSesion(credenciales:string,credencial:string): Observable<any> {
-    return this.http.get(this.url+"/"+credenciales+"/"+credencial).pipe(map(data => {
+  iniciarSesion(usuario:String,password:string): Observable<any> {
+    return this.http.get(this.url+"/"+usuario+"/"+password).pipe(map(data => {
+
+      this.var = data;
+      console.log("data var:"+this.var);
+      console.log("accesando anombre:"+JSON.stringify(this.var.usuario));
+      console.log("data usuario:"+usuario);
+      console.log("data password:"+password);
+
+      if(JSON.stringify(this.var.usuario)!==null && JSON.stringify(this.var.password)!==null){
       sessionStorage.setItem('currentUser', JSON.stringify(data));
       this.currentUserSubject.next(data);
+      }
 
-      console.log(data);
+      console.log("data autenticacion:" +JSON.stringify(data));
       return data;
     }))  
   }
@@ -37,5 +47,8 @@ export class AutenticacionService {
   datosSecion(){
     return this.obtenerSecion= sessionStorage.getItem('currentUser');
   }
-
+  
+  borrarSecion() {
+    sessionStorage.clear();
+  }
 }

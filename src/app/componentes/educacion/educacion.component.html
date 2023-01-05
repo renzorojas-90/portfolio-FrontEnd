@@ -2,6 +2,7 @@
   <div class="col-auto me-auto">
     <h1 class="display-6">Educacion</h1>
      <div>
+      <button class="btn btn-primary" (click)="cerrarSecion()" >cerrar sesion</button>
       <h1>logueo</h1>
       <h1>{{estalogueado()}}</h1>
 
@@ -12,7 +13,7 @@
     
   <!-- boton modal-add--> 
   <div class="col-auto">
-    <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modal-add">
+    <button type="button" *ngIf="estalogueado()" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modal-add">
       <i class="bi bi-plus-lg"></i>
     </button>
   </div>
@@ -107,7 +108,7 @@
   
             <!-- Button modal editar-->        
             <div class="ms-1">
-              <button type="button" (click)="TraerUnaEducacion(lista_edu.id)" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modaledit" >
+              <button type="button" *ngIf="estalogueado()" (click)="TraerUnaEducacion(lista_edu.id)" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modaledit" >
                 <i class="bi bi-pen"></i>
               </button>
             </div>
@@ -115,7 +116,7 @@
 
         <!-- Button ELiminar-->        
             <div class="ms-1">
-              <button type="button" (click)="onEliminarEducacion($event,educaciones.id,lista_edu.id)" class="btn btn-outline-primary">
+              <button type="button" *ngIf="estalogueado()" (click)="onEliminarEducacion($event,educaciones.id,lista_edu.id)" class="btn btn-outline-primary">
                 <i class="bi bi-x-lg"></i>
               </button>
             </div>

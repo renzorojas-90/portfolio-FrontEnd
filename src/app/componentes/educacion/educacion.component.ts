@@ -43,6 +43,10 @@ export class EducacionComponent implements OnInit {
       return this.logueado.datosSecion();
     }
 
+    cerrarSecion(){
+      this.logueado.borrarSecion();
+    }
+
   actualizarportfolio(){
     this.datosPorfolio.obtenerDatos().subscribe(data =>{
       this.educaciones = data;
