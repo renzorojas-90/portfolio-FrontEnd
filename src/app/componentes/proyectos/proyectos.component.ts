@@ -8,6 +8,7 @@ import { ProyectoService } from 'src/app/servicios/proyecto.service';
   templateUrl: './proyectos.component.html',
   styleUrls: ['./proyectos.component.css']
 })
+
 export class ProyectosComponent implements OnInit {
 
   info: any;
@@ -25,7 +26,7 @@ export class ProyectosComponent implements OnInit {
     })
 
     
-   }
+  }
 
   ngOnInit(): void {
     this.actualizarportfolio();

@@ -4,7 +4,7 @@
    <nav class="navbar navbar-light  ">
          <a class="navbar-brand" href="#"><img src="assets/imagenes/argprograma.png" class="" alt="banner" width="200" height="60"></a>
          <ul class="nav justify-content-end">
-            <li *ngFor="let lista_red of prueba.listaRedes" class="nav-item">
+            <li *ngFor="let lista_red of prueba?.listaRedes" class="nav-item">
               <a class="nav-link active" aria-current="page" href="#"><img src="assets/imagenes/{{lista_red.logo}}" alt="facebook" width="44" height="44" ></a>
             </li>           
           </ul>   
@@ -20,7 +20,7 @@
    <div class="container">
     <div class="bannermodf" style="background-image: url('assets/imagenes/banner1.jpg');">
       <div class="perfilactual" style="width: 20rem;">
-        <img src="assets/imagenes/{{prueba.fotoPerfil}}" class="rounded-circle" alt="imagen perfil" width="200" height="200">
+        <img src="assets/imagenes/{{prueba?.fotoPerfil}}" class="rounded-circle" alt="imagen perfil" width="200" height="200">
       </div>
       
         <h1 class="text-white text-center">Portfolio  tecnologico</h1>
@@ -34,8 +34,8 @@
     <div class="card" style="width: 15rem;">
        
         <div class="card-body">
-          <h5 class="card-title text-uppercase">{{prueba.nombre  + " " + prueba.apellido}} </h5>
-          <p class="card-text">{{prueba.tituloDesarrollador}}</p>
+          <h5 class="card-title text-uppercase">{{prueba?.nombre  + " " + prueba?.apellido}} </h5>
+          <p class="card-text">{{prueba?.tituloDesarrollador}}</p>
           <a href="#" class="btn btn-primary">Informacion de contacto</a>
         </div>
       </div>
@@ -47,7 +47,7 @@
     <h1 class="display-6">Acerca de</h1> 
     <div class="d-flex bd-highlight mb-3">
         <div class="me-auto p-2 bd-highlight">
-          <p>{{prueba.about}}</p>
+          <p>{{prueba?.about}}</p>
         </div>
          <div class="p-2 bd-highlight">
           <button type="button" class="btn btn-outline-primary"><i class="bi bi-pen-fill"></i></button>

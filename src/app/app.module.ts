@@ -16,6 +16,7 @@ import { AutenticacionService } from './servicios/autenticacion.service';
 import { InterceptorService } from './servicios/interceptor.service';
 import { PorfolioService } from './servicios/porfolio.service';
 import { ProyectoService } from './servicios/proyecto.service';
+import { ExperienciaService } from './servicios/experiencia.service';
 
 
 @NgModule({
@@ -40,6 +41,7 @@ import { ProyectoService } from './servicios/proyecto.service';
     AutenticacionService,
     PorfolioService,
     ProyectoService,
+    ExperienciaService,
     {provide: HTTP_INTERCEPTORS, useClass:InterceptorService, multi: true}
   ],
   bootstrap: [AppComponent]

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder,Validators } from '@angular/forms';
 import { Route, Router } from '@angular/router';
+import { AutenticacionService } from 'src/app/servicios/autenticacion.service';
+
 import { PorfolioService } from 'src/app/servicios/porfolio.service';
 
 @Component({
@@ -14,8 +16,9 @@ export class EducacionComponent implements OnInit {
   educaciones: any;
   form: FormGroup;
   editEducaciones: any;
+  var : any;
 
-  constructor(private datosPorfolio:PorfolioService, private formbuilder: FormBuilder, private ruta: Router) {
+  constructor(private datosPorfolio:PorfolioService,private logueado:AutenticacionService, private formbuilder: FormBuilder, private ruta: Router) {
     
     this.form = this.formbuilder.group({
 
@@ -35,6 +38,10 @@ export class EducacionComponent implements OnInit {
   ngOnInit(): void {
     this.actualizarportfolio();
   }
+
+    estalogueado(){
+      return this.logueado.datosSecion();
+    }
 
   actualizarportfolio(){
     this.datosPorfolio.obtenerDatos().subscribe(data =>{

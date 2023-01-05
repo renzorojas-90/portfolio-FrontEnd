@@ -10,10 +10,14 @@ export class AutenticacionService {
 
   url='http://localhost:8080/login';
   currentUserSubject: BehaviorSubject<any>;
+
+  obtenerSecion:any;
+
   constructor(private http:HttpClient) { 
 
     console.log("auttenticacion corriendo")
     this.currentUserSubject = new BehaviorSubject<any>(JSON.parse(sessionStorage.getItem('currentUser') || '{}'));
+    
   }
 
   iniciarSesion(credenciales:string,credencial:string): Observable<any> {
@@ -26,8 +30,12 @@ export class AutenticacionService {
     }))  
   }
 
-  get usuarioAutenticado(){
+ get usuarioAutenticado(){
     return this.currentUserSubject.value;
+  }
+
+  datosSecion(){
+    return this.obtenerSecion= sessionStorage.getItem('currentUser');
   }
 
 }
