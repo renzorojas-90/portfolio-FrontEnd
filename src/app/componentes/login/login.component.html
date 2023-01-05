@@ -1,7 +1,16 @@
 <!-- Button modal -->
-<button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-    Login
-  </button>
+<div *ngIf="estalogueado(); then thenBlock else elseBlock"></div>
+        <ng-template #thenBlock>
+            <button type="button" (click)="cerrarSecion()" class="btn btn-outline-primary">
+                Logout  
+              </button>
+        </ng-template>
+        <ng-template #elseBlock>
+            <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                Login
+              </button>
+        </ng-template>
+
 
   <!-- Modal -->
   <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -45,7 +54,7 @@
                             
                             <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                            <button type="submit" class="btn btn-primary" onclick="">Enviarformulario</button>
+                            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" onclick="">Enviarformulario</button>
                             </div>
                         </div>
                         

@@ -43,4 +43,12 @@ export class LoginComponent implements OnInit {
 
   }
 
+  estalogueado(){
+    return this.autenticacionService.datosSecion();
+  }
+
+  cerrarSecion(){
+    this.autenticacionService.borrarSecion();
+  }
+
 }

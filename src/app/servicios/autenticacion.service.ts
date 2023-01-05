@@ -25,14 +25,11 @@ export class AutenticacionService {
     return this.http.get(this.url+"/"+usuario+"/"+password).pipe(map(data => {
 
       this.var = data;
-      console.log("data var:"+this.var);
-      console.log("accesando anombre:"+JSON.stringify(this.var.usuario));
-      console.log("data usuario:"+usuario);
-      console.log("data password:"+password);
 
-      if(JSON.stringify(this.var.usuario)!==null && JSON.stringify(this.var.password)!==null){
+      if(this.var.usuario!==null && this.var.password!==null){
       sessionStorage.setItem('currentUser', JSON.stringify(data));
       this.currentUserSubject.next(data);
+      alert("Usuario autenticado correctamente para Edicion");
       }
 
       console.log("data autenticacion:" +JSON.stringify(data));

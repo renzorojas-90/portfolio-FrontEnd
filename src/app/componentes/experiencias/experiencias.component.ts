@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AutenticacionService } from 'src/app/servicios/autenticacion.service';
 import { ExperienciaService } from 'src/app/servicios/experiencia.service';
 
 @Component({
@@ -15,7 +16,7 @@ export class ExperienciasComponent implements OnInit {
   form: FormGroup;
   infoEdit: any;
 
-  constructor(private dataService:ExperienciaService, private formbuilder: FormBuilder, private ruta: Router) {
+  constructor(private dataService:ExperienciaService,private logueado:AutenticacionService, private formbuilder: FormBuilder, private ruta: Router) {
     
     this.form = this.formbuilder.group({
       
@@ -34,6 +35,10 @@ export class ExperienciasComponent implements OnInit {
 
   ngOnInit(): void {
     this.actualizarportfolio();
+  }
+
+  estalogueado(){
+    return this.logueado.datosSecion();
   }
 
   actualizarportfolio(){

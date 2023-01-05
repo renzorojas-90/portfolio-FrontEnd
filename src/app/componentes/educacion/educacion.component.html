@@ -1,15 +1,6 @@
 <div class="row">
   <div class="col-auto me-auto">
     <h1 class="display-6">Educacion</h1>
-     <div>
-      <button class="btn btn-primary" (click)="cerrarSecion()" >cerrar sesion</button>
-      <h1>logueo</h1>
-      <h1>{{estalogueado()}}</h1>
-
-     </div>
-     <div *ngIf="estalogueado(); then thenBlock else elseBlock"></div>
-        <ng-template #thenBlock>estalogueado</ng-template>
-        <ng-template #elseBlock>no esta logueado</ng-template>
     
   <!-- boton modal-add--> 
   <div class="col-auto">

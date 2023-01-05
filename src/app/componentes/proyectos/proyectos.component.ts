@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AutenticacionService } from 'src/app/servicios/autenticacion.service';
 import { ProyectoService } from 'src/app/servicios/proyecto.service';
 
 @Component({
@@ -15,7 +16,7 @@ export class ProyectosComponent implements OnInit {
   form: FormGroup;
   infoEdit: any;
 
-  constructor(private dataService:ProyectoService, private formbuilder: FormBuilder, private ruta: Router) {
+  constructor(private dataService:ProyectoService,private logueado:AutenticacionService, private formbuilder: FormBuilder, private ruta: Router) {
     
     this.form = this.formbuilder.group({
       id: [Validators.required],
@@ -30,6 +31,10 @@ export class ProyectosComponent implements OnInit {
 
   ngOnInit(): void {
     this.actualizarportfolio();
+  }
+
+  estalogueado(){
+    return this.logueado.datosSecion();
   }
 
   actualizarportfolio(){
