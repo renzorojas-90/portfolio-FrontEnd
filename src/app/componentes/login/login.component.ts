@@ -36,6 +36,7 @@ export class LoginComponent implements OnInit {
 
   onEnviar(event: Event){
     event.preventDefault;
+    
     this.autenticacionService.iniciarSesion(this.formlogin.value.usuario,this.formlogin.value.password).subscribe(data => {
       console.log("datalogin: " + JSON.stringify(data));
       //this.ruta.navigate(['/portfolio']);

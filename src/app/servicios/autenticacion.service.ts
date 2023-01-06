@@ -29,6 +29,7 @@ export class AutenticacionService {
       if(this.var.usuario!==null && this.var.password!==null){
       sessionStorage.setItem('currentUser', JSON.stringify(data));
       this.currentUserSubject.next(data);
+      
       alert("Usuario autenticado correctamente para Edicion");
       }
 
