@@ -4,6 +4,7 @@ import { Route, Router } from '@angular/router';
 import { AutenticacionService } from 'src/app/servicios/autenticacion.service';
 
 import { PorfolioService } from 'src/app/servicios/porfolio.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-educacion',
@@ -58,28 +59,48 @@ export class EducacionComponent implements OnInit {
   onEnviarEducacion(event: Event, personaid:any){
     event.preventDefault;
     this.datosPorfolio.addEducacion(this.form.value,personaid).subscribe(data => {
-      console.log(data);
-      this.actualizarportfolio();
-
+       this.actualizarportfolio();
      })
+     this.exito();
 
   }
 
   onEliminarEducacion(event: Event,persona: any,educacion: any){
     event.preventDefault;
-    this.datosPorfolio.eliminarEducacion(educacion,persona).subscribe(data =>{
-      this.actualizarportfolio();
-    });
+    
+    Swal.fire({
+      title: 'Estas Seguro?',
+      text: "No Podras Revertirlos los Cambios!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si, Eliminar!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.datosPorfolio.eliminarEducacion(educacion,persona).subscribe(data =>{
+          this.actualizarportfolio();
+        });
+        Swal.fire(
+          'Borrado!',
+          'El Item Ha Sido ELiminado.',
+          'success'
+        )
+      }
+    })
+    
+    
 
   }
 
   editarEducacion(event: Event){
     event.preventDefault;
+    this.exito();
     console.log(this.form.value);
     this.datosPorfolio.edit_Educacion(this.form.value).subscribe(data=>{
       this.actualizarportfolio();
     });
-
+    
     
   }
 
@@ -101,6 +122,17 @@ export class EducacionComponent implements OnInit {
 
     
   }
+  
+  exito(){
+    Swal.fire({
+      position: 'top',
+      icon: 'success',
+      title: 'Guardado con Exito',
+      showConfirmButton: false,
+      timer: 2000
+    })
+  }
+
   
 
 }

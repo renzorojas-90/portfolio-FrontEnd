@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import {BehaviorSubject, Observable } from 'rxjs';
 import { map} from 'rxjs/operators';
+import Swal from 'sweetalert2';
 
 @Injectable({
   providedIn: 'root'
@@ -30,13 +31,15 @@ export class AutenticacionService {
       sessionStorage.setItem('currentUser', JSON.stringify(data));
       this.currentUserSubject.next(data);
       
-      alert("Usuario autenticado correctamente para Edicion");
-      }
-
+      this.mensajexito();
+      }else{ this.mensajerror();}
+     
       console.log("data autenticacion:" +JSON.stringify(data));
       return data;
     }))  
   }
+
+  
 
  get usuarioAutenticado(){
     return this.currentUserSubject.value;
@@ -49,4 +52,22 @@ export class AutenticacionService {
   borrarSecion() {
     sessionStorage.clear();
   }
+
+  mensajexito(){
+    Swal.fire({
+      icon: 'success',
+      title: 'Autenticado con Exito',
+      text: 'Habilitado para la Edicion',
+      
+    })
+  }
+  mensajerror() {
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'Credenciales Invalidas!',
+      
+    })
+  }
+  
 }
