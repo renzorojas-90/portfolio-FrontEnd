@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AutenticacionService } from 'src/app/servicios/autenticacion.service';
 import { ExperienciaService } from 'src/app/servicios/experiencia.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-experiencias',
@@ -54,16 +55,33 @@ export class ExperienciasComponent implements OnInit {
     this.dataService.addItem(this.form.value,personaid).subscribe(data => {
       console.log(data);
       this.actualizarportfolio();
-
      })
+     this.exito();
 
   }
 
   onEliminarItem(event: Event,idpersona: any,idItem: any){
     event.preventDefault;
-    this.dataService.eliminarItem(idpersona,idItem).subscribe(data =>{
-      this.actualizarportfolio();
-    });
+    Swal.fire({
+      title: 'Estas Seguro?',
+      text: "No Podras Revertirlos los Cambios!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si, Eliminar!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.dataService.eliminarItem(idpersona,idItem).subscribe(data =>{
+          this.actualizarportfolio();
+        });
+        Swal.fire(
+          'Borrado!',
+          'El Item Ha Sido ELiminado.',
+          'success'
+        )
+      }
+    })
 
   }
 
@@ -73,7 +91,7 @@ export class ExperienciasComponent implements OnInit {
     this.dataService.editItem(this.form.value).subscribe(data=>{
       this.actualizarportfolio();
     });
-
+    this.exito();
     
   }
 
@@ -92,8 +110,16 @@ export class ExperienciasComponent implements OnInit {
     
       });
     });
+  }
 
-    
+  exito(){
+    Swal.fire({
+      position: 'top',
+      icon: 'success',
+      title: 'Guardado con Exito',
+      showConfirmButton: false,
+      timer: 2000
+    })
   }
 
 }

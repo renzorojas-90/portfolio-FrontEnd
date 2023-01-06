@@ -89,18 +89,15 @@ export class EducacionComponent implements OnInit {
       }
     })
     
-    
-
   }
 
   editarEducacion(event: Event){
-    event.preventDefault;
-    this.exito();
+    event.preventDefault; 
     console.log(this.form.value);
     this.datosPorfolio.edit_Educacion(this.form.value).subscribe(data=>{
       this.actualizarportfolio();
     });
-    
+    this.exito();
     
   }
 

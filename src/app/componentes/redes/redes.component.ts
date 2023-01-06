@@ -2,33 +2,32 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AutenticacionService } from 'src/app/servicios/autenticacion.service';
-import { ProyectoService } from 'src/app/servicios/proyecto.service';
+import { RedesService } from 'src/app/servicios/redes.service';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-proyectos',
-  templateUrl: './proyectos.component.html',
-  styleUrls: ['./proyectos.component.css']
+  selector: 'app-redes',
+  templateUrl: './redes.component.html',
+  styleUrls: ['./redes.component.css']
 })
-
-export class ProyectosComponent implements OnInit {
+export class RedesComponent implements OnInit {
 
   info: any;
   form: FormGroup;
   infoEdit: any;
 
-  constructor(private dataService:ProyectoService,private logueado:AutenticacionService, private formbuilder: FormBuilder, private ruta: Router) {
+  constructor(private dataService:RedesService,private logueado:AutenticacionService, private formbuilder: FormBuilder, private ruta: Router) {
     
     this.form = this.formbuilder.group({
-      id: [Validators.required],
-      nombre: ["",Validators.required],
-      fechaRealizado :["",Validators.required],
-      descripcion: ["",Validators.required],
-      linkEvidencia:["",Validators.required],
-    })
+      
+      id: ["",Validators.required],
+      link: ["",Validators.required],
+      logo : ["",Validators.required]
+
+    });
 
     
-  }
+   }
 
   ngOnInit(): void {
     this.actualizarportfolio();
@@ -58,7 +57,6 @@ export class ProyectosComponent implements OnInit {
 
   onEliminarItem(event: Event,idpersona: any,idItem: any){
     event.preventDefault;
-
     Swal.fire({
       title: 'Estas Seguro?',
       text: "No Podras Revertirlos los Cambios!",
@@ -79,8 +77,6 @@ export class ProyectosComponent implements OnInit {
         )
       }
     })
-    
-
 
   }
 
@@ -94,22 +90,16 @@ export class ProyectosComponent implements OnInit {
     
   }
 
-  traerItem(editeducacion:any){
-    this.dataService.buscarItem(editeducacion).subscribe(data=>{
+  traerItem(idItem:any){
+    this.dataService.buscarItem(idItem).subscribe(data=>{
       this.infoEdit = data;
       console.log(data);
-      this.form.patchValue({
-
+      this.form.patchValue({ 
         id: data.id,
-        nombre: data.nombre,
-        fechaRealizado : data.fechaRealizado,
-        descripcion: data.descripcion,
-        linkEvidencia: data.linkEvidencia,
-    
+        link: data.link,
+        logo: data.logo
       });
     });
-
-    
   }
 
   exito(){
@@ -120,7 +110,7 @@ export class ProyectosComponent implements OnInit {
       showConfirmButton: false,
       timer: 2000
     })
-  }
 
+  }
 
 }

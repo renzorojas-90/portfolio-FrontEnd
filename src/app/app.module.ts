@@ -17,6 +17,8 @@ import { InterceptorService } from './servicios/interceptor.service';
 import { PorfolioService } from './servicios/porfolio.service';
 import { ProyectoService } from './servicios/proyecto.service';
 import { ExperienciaService } from './servicios/experiencia.service';
+import { RedesComponent } from './componentes/redes/redes.component';
+import { RedesService } from './servicios/redes.service';
 
 
 @NgModule({
@@ -29,7 +31,8 @@ import { ExperienciaService } from './servicios/experiencia.service';
     TecnologiasComponent,
     ProyectosComponent,
     LoginComponent,
-    PortfolioComponent
+    PortfolioComponent,
+    RedesComponent
   ],
   imports: [
     BrowserModule,
@@ -42,6 +45,7 @@ import { ExperienciaService } from './servicios/experiencia.service';
     PorfolioService,
     ProyectoService,
     ExperienciaService,
+    RedesService,
     {provide: HTTP_INTERCEPTORS, useClass:InterceptorService, multi: true}
   ],
   bootstrap: [AppComponent]

@@ -1,14 +1,15 @@
     <!-- cabecera  -->
-    
+<div  class="text-center" *ngIf="estalogueado()">
+<H1>BIENVENIDOS AL MODO EDICION</H1>
+</div>  
+
+
 <div class="container">
    <nav class="navbar navbar-light  ">
-         <a class="navbar-brand" href="#"><img src="assets/imagenes/argprograma.png" class="" alt="banner" width="200" height="60"></a>
-         <ul class="nav justify-content-end">
-            <li *ngFor="let lista_red of prueba?.listaRedes" class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#"><img src="assets/imagenes/{{lista_red.logo}}" alt="facebook" width="44" height="44" ></a>
-            </li>           
+         <img src="assets/imagenes/argprograma.png" class="" alt="banner" width="200" height="60">
+         <ul class="nav justify-content-end">         
+           <app-redes></app-redes>
           </ul>   
-               
           <app-login></app-login>               
   </nav>
 </div>   
