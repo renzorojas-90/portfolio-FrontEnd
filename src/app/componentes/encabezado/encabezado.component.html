@@ -67,7 +67,7 @@
   <div class="modal fade" id="modaledit-foto" tabindex="-1">
      <div class="modal-dialog">
        <div class="modal-content">
-         <form [formGroup]="form" (ngSubmit)="editarItem($event)">
+         <form [formGroup]="form" (ngSubmit)="editarItem($event)" enctype="multipart/form-data">
           <div class="modal-header">
             <h1 class="modal-title">Editar Foto Perfil</h1>
           </div>
