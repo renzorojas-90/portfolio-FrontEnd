@@ -19,6 +19,7 @@ import { ProyectoService } from './servicios/proyecto.service';
 import { ExperienciaService } from './servicios/experiencia.service';
 import { RedesComponent } from './componentes/redes/redes.component';
 import { RedesService } from './servicios/redes.service';
+import { EncabezadoService } from './servicios/encabezado.service';
 
 
 @NgModule({
@@ -46,6 +47,7 @@ import { RedesService } from './servicios/redes.service';
     ProyectoService,
     ExperienciaService,
     RedesService,
+    EncabezadoService,
     {provide: HTTP_INTERCEPTORS, useClass:InterceptorService, multi: true}
   ],
   bootstrap: [AppComponent]

@@ -34,7 +34,7 @@ export class AutenticacionService {
       this.mensajexito();
       }else{ this.mensajerror();}
      
-      console.log("data autenticacion:" +JSON.stringify(data));
+      //console.log("data autenticacion:" +JSON.stringify(data));
       return data;
     }))  
   }

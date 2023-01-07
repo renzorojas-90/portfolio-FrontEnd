@@ -53,7 +53,7 @@ export class ExperienciasComponent implements OnInit {
   onEnviarItem(event: Event, personaid:any){
     event.preventDefault;
     this.dataService.addItem(this.form.value,personaid).subscribe(data => {
-      console.log(data);
+      //console.log(data);
       this.actualizarportfolio();
      })
      this.exito();
