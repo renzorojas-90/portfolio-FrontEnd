@@ -20,6 +20,10 @@ import { ExperienciaService } from './servicios/experiencia.service';
 import { RedesComponent } from './componentes/redes/redes.component';
 import { RedesService } from './servicios/redes.service';
 import { EncabezadoService } from './servicios/encabezado.service';
+import { from } from 'rxjs';
+import { HighchartsChartModule } from 'highcharts-angular';
+import { TecnologiaService } from './servicios/tecnologia.service';
+import { GraficoComponent } from './componentes/grafico/grafico.component';
 
 
 @NgModule({
@@ -33,13 +37,16 @@ import { EncabezadoService } from './servicios/encabezado.service';
     ProyectosComponent,
     LoginComponent,
     PortfolioComponent,
-    RedesComponent
+    RedesComponent,
+    GraficoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HighchartsChartModule
+
   ],
   providers: [
     AutenticacionService,
@@ -48,6 +55,7 @@ import { EncabezadoService } from './servicios/encabezado.service';
     ExperienciaService,
     RedesService,
     EncabezadoService,
+    TecnologiaService,
     {provide: HTTP_INTERCEPTORS, useClass:InterceptorService, multi: true}
   ],
   bootstrap: [AppComponent]

@@ -19,8 +19,17 @@ export class EncabezadoService {
 
   }
 
-  editItem(datosFormulario:any):Observable<any>{
+  /*editItem(datosFormulario:any,file: File):Observable<any> {
+    return this.http.post(this.api+"/editar/persona", file,datosFormulario);
+  }*/
 
+ /* basicUploadSingleImage(datosFormulario:any,file: File):Observable<any> {
+    return this.http.post(this.api+"/editar/persona", file,datosFormulario);  
+  }*/
+
+    
+
+   editItem(datosFormulario:any):Observable<any>{
     return this.http.put(this.api+"/editar/persona",datosFormulario);
   }
 

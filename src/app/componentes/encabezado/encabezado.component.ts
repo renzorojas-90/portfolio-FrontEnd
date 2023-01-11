@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { VirtualTimeScheduler } from 'rxjs';
 import { AutenticacionService } from 'src/app/servicios/autenticacion.service';
 import { EncabezadoService } from 'src/app/servicios/encabezado.service';
 import Swal from 'sweetalert2';
@@ -16,6 +17,8 @@ export class EncabezadoComponent implements OnInit {
   info: any;
   form: FormGroup;
   infoEdit: any;
+
+  archivos : any =[];
 
   constructor(private dataService:EncabezadoService,private logueado:AutenticacionService, private formbuilder: FormBuilder, private ruta: Router) {
     
@@ -57,12 +60,11 @@ export class EncabezadoComponent implements OnInit {
   }
 
 
-  editarItem(event: Event){
+  editarItem(event : Event){
     event.preventDefault;
-    console.log(this.form.value);
+    //console.log("datosformulario: "+this.form.value);
     this.dataService.editItem(this.form.value).subscribe(data=>{
       this.actualizarportfolio();
-      //console.log(data);
     });
     this.exito();
     
@@ -105,5 +107,22 @@ export class EncabezadoComponent implements OnInit {
     })
 
   }
+
+    
+
+  /*onFileSelect(event:any){
+    if (event.target.files.length > 0) {
+      console.log(event.currentTarget.files[0])
+      const file = event.currentTarget.files[0];
+      console.log("onfileselect: "+file);
+      
+      console.log(this.form.get('fotoPerfil'));
+      //this.form.get('fotoPerfil').setValue(file);
+    }
+  }*/
+
+
+    
+  
 
 }

@@ -3,6 +3,7 @@
         <H1>BIENVENIDOS AL MODO EDICION</H1>
     </div>  
         
+
         <!-- cabecera  -->
         <div class="container">
            <nav class="navbar navbar-light  ">
@@ -20,7 +21,7 @@
             <div class="bannermodf" style="background-image: url('assets/imagenes/banner1.jpg');">
               <div class="perfilactual" style="width: 20rem;">
                 <img src="assets/imagenes/{{info?.fotoPerfil}}" class="rounded-circle" alt="imagen perfil" width="200" height="200">
-                <button type="button" *ngIf="estalogueado()" (click)="traerItem(info.id)" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modaledit-foto" >
+                <button type="button"  *ngIf="estalogueado()" (click)="traerItem(info.id)" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modaledit-foto" >
                     <i class="bi bi-pen"></i>
                 </button>
               </div>
@@ -58,7 +59,7 @@
                         <i class="bi bi-pen"></i>
                     </button>
                 </div>     
-            </div>
+         </div>
             <hr>
 
  <!-- Modales-->
@@ -67,7 +68,7 @@
   <div class="modal fade" id="modaledit-foto" tabindex="-1">
      <div class="modal-dialog">
        <div class="modal-content">
-         <form [formGroup]="form" (ngSubmit)="editarItem($event)" enctype="multipart/form-data">
+         <form [formGroup]="form" (ngSubmit)="editarItem($event)" >
           <div class="modal-header">
             <h1 class="modal-title">Editar Foto Perfil</h1>
           </div>
@@ -76,7 +77,8 @@
             <div class="mb-3 row">
               <label for="" class="col-sm-2 col-form-label">Foto:</label>
               <div class="col-sm-10">
-                  <input type="text" formControlName="fotoPerfil" class="form-control" value="{{infoEdit?.fotoPerfil}}">
+                
+                <input type="text" formControlName="fotoPerfil" name="fotoPerfil" id="fotoPerfil" class="form-control" value="{{infoEdit?.fotoPerfil}}"> 
                </div>
             </div>
             </div>
@@ -89,7 +91,7 @@
        </div>  
     </div>
 
-    <!-- Modaledit-about --> 
+    <!-- Modaledit-about 
   <div class="modal fade" id="modaledit-about" tabindex="-1">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -116,9 +118,9 @@
             </form>
        </div>
       </div>  
-   </div>
+   </div> -->
 
-     <!-- Modaledit-persona --> 
+     <!-- Modaledit-persona  
   <div class="modal fade" id="modaledit-persona" tabindex="-1">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -160,4 +162,4 @@
             </form>
        </div>
       </div>  
-   </div>
+   </div>-->
