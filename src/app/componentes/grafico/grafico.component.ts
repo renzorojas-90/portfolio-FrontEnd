@@ -9,9 +9,11 @@ import * as Highcharts from 'highcharts';
 })
 export class GraficoComponent implements OnInit {
   @Input() valor: string;
+  @Input() nombre: string;
   circulo: typeof Highcharts = Highcharts;
   opciones:  Highcharts.Options;
   constructor() {
+    this.nombre="";
     this.valor = "";
     this.opciones = {};
    }
@@ -38,7 +40,7 @@ export class GraficoComponent implements OnInit {
           
         }],
         title:{
-          text: 'HTML',
+          text: this.nombre,
         },
         legend:{
           enabled: false,

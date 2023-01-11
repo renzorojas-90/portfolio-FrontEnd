@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CabeceraComponent } from './cabecera/cabecera.component';
 import { EncabezadoComponent } from './componentes/encabezado/encabezado.component';
 import { ExperienciasComponent } from './componentes/experiencias/experiencias.component';
 import { EducacionComponent } from './componentes/educacion/educacion.component';
@@ -29,7 +28,6 @@ import { GraficoComponent } from './componentes/grafico/grafico.component';
 @NgModule({
   declarations: [
     AppComponent,
-    CabeceraComponent,
     EncabezadoComponent,
     ExperienciasComponent,
     EducacionComponent,

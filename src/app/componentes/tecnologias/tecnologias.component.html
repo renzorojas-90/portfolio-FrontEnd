@@ -4,7 +4,7 @@
    </div>
    <!-- boton modal-add--> 
    <div class="col-auto">
-     <button type="button" *ngIf="estalogueado()" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modal-add-tecnologia">
+     <button type="button" *ngIf="estalogueado()" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal-add-tecnologia">
        <i class="bi bi-plus-lg"></i>
      </button>
    </div>
@@ -51,21 +51,60 @@
  <hr>
 
 
-
-<div *ngFor=" let lista of info?.listaTecnologia">
-   <ul>
-      <li>{{lista.nombreTecno}}</li>
-      <li>{{lista.logoTecno}}</li>
-      <li>{{lista.gradoDominio}}</li>
-   </ul>
-   <br>
-   <app-grafico  valor="{{lista.gradoDominio}}" ></app-grafico>
+  
+<div class="row" >
+  <div class="col-3 mt-3 d-flex" *ngFor=" let lista of info?.listaTecnologia">
+    <app-grafico class=""  valor="{{lista.gradoDominio}}" nombre="{{lista.nombreTecno}}" ></app-grafico>
+    <div>
+      <button type="button" *ngIf="estalogueado()" (click)="traerItem(lista.id)" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#modaledit-tecnologia" >
+        <i class="bi bi-pen"></i>
+      </button>
+      <button type="button" *ngIf="estalogueado()" (click)="onEliminarItem($event,info.id,lista.id)" class="btn btn-outline-danger">
+        <i class="bi bi-x-lg"></i>
+      </button>
+    </div>
+  </div>
 </div>
-
-
 
     
 
+
+
+
+   <!-- Modaledit-tecnologia-->  
    
+   <div class="modal fade" id="modaledit-tecnologia" tabindex="-1">
+    <div class="modal-dialog">
+       <div class="modal-content">
+        <form [formGroup]="form" (ngSubmit)="editarItem($event)">
+          <div class="modal-header">
+            <h1 class="modal-title">Editar Tecnologia</h1>
+          </div>
+          
+          <div class="modal-body">
+            <input type="hidden" class="form-control" formControlName="id">
+            <div class="mb-3 row">
+              <label for="" class="col-sm-2 col-form-label">Nombre Tecnologia:</label>
+              <div class="col-sm-10">
+                  <input type="text" class="form-control" formControlName="nombreTecno"  value="{{infoEdit?.nombreTecno}}">
+              </div>
+            </div>
+            <div class="mb-3 row">
+              <label for="" class="col-sm-2 col-form-label">Nivel: </label>
+              <div class="col-sm-10">
+                  <input type="text" class="form-control" formControlName="gradoDominio" value="{{infoEdit?.gradoDominio}}">                                   
+              </div>
+            </div>                             
+          </div> 
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+              <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Editar</button>
+          </div>
+        </form>
+       </div>
+      
+    </div>
+    
+</div>
     
 

@@ -4,7 +4,7 @@
     </div>
     <!-- boton modal-add--> 
     <div class="col-auto">
-      <button type="button" *ngIf="estalogueado()" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modal-add-proyecto">
+      <button type="button" *ngIf="estalogueado()" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal-add-proyecto">
         <i class="bi bi-plus-lg"></i>
       </button>
     </div>
@@ -85,7 +85,7 @@
       
               <!-- Button modal editar-->        
               <div class="ms-1">
-                <button type="button" *ngIf="estalogueado()" (click)="traerItem(lista.id)" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modaledit-proyecto" >
+                <button type="button" *ngIf="estalogueado()" (click)="traerItem(lista.id)" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#modaledit-proyecto" >
                   <i class="bi bi-pen"></i>
                 </button>
               </div>
@@ -93,7 +93,7 @@
   
           <!-- Button ELiminar-->        
               <div class="ms-1">
-                <button type="button" *ngIf="estalogueado()" (click)="onEliminarItem($event,info.id,lista.id)" class="btn btn-outline-primary">
+                <button type="button" *ngIf="estalogueado()" (click)="onEliminarItem($event,info.id,lista.id)" class="btn btn-outline-danger">
                   <i class="bi bi-x-lg"></i>
                 </button>
               </div>

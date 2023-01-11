@@ -21,7 +21,7 @@
             <div class="bannermodf" style="background-image: url('assets/imagenes/banner1.jpg');">
               <div class="perfilactual" style="width: 20rem;">
                 <img src="assets/imagenes/{{info?.fotoPerfil}}" class="rounded-circle" alt="imagen perfil" width="200" height="200">
-                <button type="button"  *ngIf="estalogueado()" (click)="traerItem(info.id)" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modaledit-foto" >
+                <button type="button"  *ngIf="estalogueado()" (click)="traerItem(info.id)" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#modaledit-foto" >
                     <i class="bi bi-pen"></i>
                 </button>
               </div>
@@ -34,7 +34,7 @@
         <div class="container">
             <div class="card" style="width: 15rem;">               
                 <div class="card-body">
-                    <button type="button" *ngIf="estalogueado()" (click)="traerItem(info?.id)" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modaledit-persona" >
+                    <button type="button" *ngIf="estalogueado()" (click)="traerItem(info?.id)" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#modaledit-persona" >
                         <i class="bi bi-pen"></i>
                     </button>
                     <h5 class="card-title text-uppercase">{{info?.nombre}}</h5>
@@ -55,7 +55,7 @@
                   <p>{{info?.about}}</p>
                 </div>
                  <div class="p-2 bd-highlight">
-                    <button type="button" *ngIf="estalogueado()" (click)="traerItem(info?.id)" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modaledit-about" >
+                    <button type="button" *ngIf="estalogueado()" (click)="traerItem(info?.id)" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#modaledit-about" >
                         <i class="bi bi-pen"></i>
                     </button>
                 </div>     
@@ -91,7 +91,7 @@
        </div>  
     </div>
 
-    <!-- Modaledit-about 
+    <!-- Modaledit-about--> 
   <div class="modal fade" id="modaledit-about" tabindex="-1">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -118,9 +118,9 @@
             </form>
        </div>
       </div>  
-   </div> -->
+   </div> 
 
-     <!-- Modaledit-persona  
+     <!-- Modaledit-persona  -->
   <div class="modal fade" id="modaledit-persona" tabindex="-1">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -162,4 +162,4 @@
             </form>
        </div>
       </div>  
-   </div>-->
+   </div>
