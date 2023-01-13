@@ -9,7 +9,7 @@ import Swal from 'sweetalert2';
 })
 export class AutenticacionService {
 
-  url='http://localhost:8080/login';
+  url='https://backportafolioweb.onrender.com';
   currentUserSubject: BehaviorSubject<any>;
 
   obtenerSecion:any;
@@ -23,7 +23,7 @@ export class AutenticacionService {
   }
 
   iniciarSesion(usuario:String,password:string): Observable<any> {
-    return this.http.get(this.url+"/"+usuario+"/"+password).pipe(map(data => {
+    return this.http.get(this.url+"/login/"+usuario+"/"+password).pipe(map(data => {
 
       this.var = data;
 

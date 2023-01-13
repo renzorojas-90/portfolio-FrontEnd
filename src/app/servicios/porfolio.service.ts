@@ -10,9 +10,9 @@ export class PorfolioService {
 
   public api : string;
 
-  constructor(private http:HttpClient) { this.api =  "http://localhost:8080"; }
+  //constructor(private http:HttpClient) { this.api =  "http://localhost:8080"; }
 
-  
+  constructor(private http:HttpClient) { this.api =  "https://backportafolioweb.onrender.com"; }
 
   obtenerDatos():Observable<any>{
 
@@ -22,23 +22,23 @@ export class PorfolioService {
 
   addEducacion(educacion:any,idpersona:any):Observable<any>{
 
-     return this.http.post("http://localhost:8080/new/educacion/"+idpersona,educacion);
+     return this.http.post(this.api+"/new/educacion/"+idpersona,educacion);
      
 
   }
 
   eliminarEducacion(educacion:any,persona:any):Observable<any>{
 
-    return this.http.delete("http://localhost:8080/eliminar/educacion/"+educacion+"/"+persona);
+    return this.http.delete(this.api+"/eliminar/educacion/"+educacion+"/"+persona);
   }
 
   edit_Educacion(educacion:any):Observable<any>{
 
-    return this.http.put('http://localhost:8080/editar/educacion',educacion);
+    return this.http.put(this.api+'/editar/educacion',educacion);
   }
 
   buscarEducacion(educacion: any):Observable<any>{ 
-    return this.http.get("http://localhost:8080/ver/educacion/"+educacion); 
+    return this.http.get(this.api+"/ver/educacion/"+educacion); 
   }
 
 }
