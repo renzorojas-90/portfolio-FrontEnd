@@ -17,6 +17,7 @@ export class EncabezadoComponent implements OnInit {
   info: any;
   form: FormGroup;
   infoEdit: any;
+  activo = false
 
   archivos : any =[];
 
@@ -32,6 +33,10 @@ export class EncabezadoComponent implements OnInit {
        about:["",Validators.required],
        usuario: ["",Validators.required],
        password:["",Validators.required],
+       emailPrincipal:["",Validators.required],
+       emailAlternativo:["",Validators.required],  
+       telefono :["",Validators.required],
+       direccion :["",Validators.required],
        listaEducacion:["",Validators.required],
        listaExperiencia: ["",Validators.required],
        listaProyecto: ["",Validators.required],
@@ -84,6 +89,10 @@ export class EncabezadoComponent implements OnInit {
         about: data.about,
         usuario:data.usuario,
         password:data.password,
+        emailPrincipal:data.emailPrincipal,
+        emailAlternativo:data.emailAlternativo,
+        telefono:data.telefono,
+        direccion:data.direccion,
         listaEducacion:data.listaEducacion,
         listaExperiencia: data.listaExperiencia, 
         listaProyecto: data.listaProyecto,
@@ -107,6 +116,8 @@ export class EncabezadoComponent implements OnInit {
     })
 
   }
+
+ 
 
     
 

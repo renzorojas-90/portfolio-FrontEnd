@@ -1,13 +1,68 @@
-.bannermodf{
-    min-height: 50vh;
-    position: relative;
-    border-bottom-left-radius: 20%;
-    
-    border-top-right-radius: 20%;
+.fondo{
+    background-color: #ccc;
 }
+
+.barranav{
+    width: 100%;
+    border-bottom: 5px solid #ccc;
+    padding-right: 10px;
+   
+}
+
+.cabecera{
+    text-align: center;
+}
+
+
+
+.banner{
+
+    
+    background-image: url('/assets/imagenes/fondo7.jpg');
+    background-repeat: no-repeat;
+    
+   height: 300px;
+    position: relative;
+    border-bottom: 7px solid #ccc;
+    box-shadow: 5px 5px 10px gray;
+    
+}
+
 
 .perfilactual{
     position:absolute;
-    margin-left: 5%;
-    bottom: -5%;
+    bottom: 0%;
+}
+
+.margen{
+    width: 80%;
+    margin: 0px auto;
+    padding-left: 50px;
+}
+
+p{
+    font-size: 20px;
+    color: rgb(7, 4, 82);
+    
+    margin-left: 70px;
+   
+}
+
+.boton{
+    
+    line-height: 100px;
+    margin-left: 50Px;
+}
+.info{
+    border-bottom: 5px solid #ccc;
+}
+
+
+.acercade{
+  
+    text-align: justify;
+    margin-left: 50px;
+    margin-right: 50px;
+    
+
 }

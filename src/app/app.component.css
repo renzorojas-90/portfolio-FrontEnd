@@ -1,0 +1,10 @@
+#contenido-body{
+    width: 1000px;
+    margin: 0px auto;
+    margin-top: 20px;
+    
+
+    background-image: url("/assets/imagenes/fondo20.png");
+    background-repeat: no-repeat;
+}
+

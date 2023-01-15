@@ -30,7 +30,7 @@ export class GraficoComponent implements OnInit {
             {
               y : aux,
             name: "conocido",
-            color: "#00FF00",
+            color: "#BE2020",
             
             },
             {
@@ -41,10 +41,20 @@ export class GraficoComponent implements OnInit {
         }],
         title:{
           text: this.nombre,
+          style: {
+            color: "#C00000",
+            fontSize: "22px",
+          }
         },
         legend:{
           enabled: false,
+        },
+        chart:{
+          backgroundColor: "#93BBD1",
+          width:200,
+          height:200,
         }
+
       }
 
   }
@@ -52,3 +62,7 @@ export class GraficoComponent implements OnInit {
   
 
 }
+
+
+//#BE2020
+//#93BBD1

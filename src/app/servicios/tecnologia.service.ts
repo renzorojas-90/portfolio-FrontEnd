@@ -9,7 +9,8 @@ export class TecnologiaService {
 
   public api : string;
 
-  constructor(private http:HttpClient) { this.api =  "https://backportafolioweb.onrender.com"; }
+  //constructor(private http:HttpClient) { this.api =  "https://backportafolioweb.onrender.com"; }
+  constructor(private http:HttpClient) { this.api =  "http://localhost:8080"; }
 
   
 

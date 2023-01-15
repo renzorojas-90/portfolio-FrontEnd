@@ -1,66 +1,87 @@
-    
-    <div  class="text-center" *ngIf="estalogueado()">
-        <H1>BIENVENIDOS AL MODO EDICION</H1>
-    </div>  
-        
 
-        <!-- cabecera  -->
-        <div class="container">
-           <nav class="navbar navbar-light  ">
-                 <img src="assets/imagenes/argprograma.png" class="" alt="banner" width="200" height="60">
-                 <ul class="nav justify-content-end">         
-                   <app-redes></app-redes>
-                  </ul>   
-                  <app-login></app-login>               
-          </nav>
-        </div>   
-                
-            <!-- banner y foto -->
-        
-           <div class="container">
-            <div class="bannermodf" style="background-image: url('assets/imagenes/banner1.jpg');">
-              <div class="perfilactual" style="width: 20rem;">
-                <img src="assets/imagenes/{{info?.fotoPerfil}}" class="rounded-circle" alt="imagen perfil" width="200" height="200">
-                <button type="button"  *ngIf="estalogueado()" (click)="traerItem(info.id)" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#modaledit-foto" >
-                    <i class="bi bi-pen"></i>
-                </button>
-              </div>
-                <h1 class="text-white text-center">Portfolio  tecnologico</h1>
-            </div>
-           </div>
-        
-           <!--info perfil -->
-           <hr>
-        <div class="container">
-            <div class="card" style="width: 15rem;">               
-                <div class="card-body">
-                    <button type="button" *ngIf="estalogueado()" (click)="traerItem(info?.id)" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#modaledit-persona" >
-                        <i class="bi bi-pen"></i>
-                    </button>
-                    <h5 class="card-title text-uppercase">{{info?.nombre}}</h5>
-                    <h5 class="card-title text-uppercase">{{info?.apellido}}</h5>
-                    <p class="card-title text-uppercase">{{info?.edad}} Años </p>
-                    
-                    <p class="card-text">{{info?.tituloDesarrollador}}</p>                    
-                </div>                
-            </div>             
-        </div>
-        
-        <hr>
-          <!-- Acerca de -->
-        <div class="container">
-            <h1 class="display-6">Acerca de</h1> 
-            <div class="d-flex bd-highlight mb-3">
-                <div class="me-auto p-2 bd-highlight">
-                  <p>{{info?.about}}</p>
-                </div>
-                 <div class="p-2 bd-highlight">
-                    <button type="button" *ngIf="estalogueado()" (click)="traerItem(info?.id)" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#modaledit-about" >
-                        <i class="bi bi-pen"></i>
-                    </button>
-                </div>     
-         </div>
-            <hr>
+  <div class="text-center" *ngIf="estalogueado()">
+    <H1>BIENVENIDOS AL MODO EDICION</H1>
+  </div>
+
+
+  <!-- cabecera  -->
+  <div class="barranav">
+    <nav class="navbar navbar-light  ">
+      <img src="assets/imagenes/argprograma.png" alt="banner" width="200" height="60">
+      <ul class="nav justify-content-end">
+        <app-redes></app-redes>
+      </ul>
+      <app-login></app-login>
+    </nav>
+  </div>
+
+  <!-- banner y foto -->
+    <div class="banner">
+      <div class="perfilactual">
+        <img src="assets/imagenes/{{info?.fotoPerfil}}" class="rounded " alt="imagen perfil" width="200" height="280">
+        <button type="button" *ngIf="estalogueado()" (click)="traerItem(info.id)" class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#modaledit-foto">
+          <i class="bi bi-pen"></i>
+        </button>
+      </div>
+      <h1 class="text-white text-center">Portfolio tecnologico</h1>
+    </div>
+  
+
+  <!--info perfil -->
+ <!--
+  <div class="container">
+    <div class="card" style="width: 15rem;">
+      <div class="card-body">
+        <button type="button" *ngIf="estalogueado()" (click)="traerItem(info?.id)" class="btn btn-outline-info"
+          data-bs-toggle="modal" data-bs-target="#modaledit-persona">
+          <i class="bi bi-pen"></i>
+        </button>
+        <h5 class="card-title text-uppercase">{{info?.nombre}}</h5>
+        <h5 class="card-title text-uppercase">{{info?.apellido}}</h5>
+        <p class="card-title text-uppercase">{{info?.edad}} Años </p>
+
+        <p class="card-text">{{info?.tituloDesarrollador}}</p>
+      </div>
+    </div>
+  </div> -->
+
+  <div class="info">
+    <h1 class="text-center fst-italic">{{info?.nombre}} {{info?.apellido}}</h1>
+    <div class="d-flex margen" >
+      <p class="fw-bold">
+        {{info?.tituloDesarrollador}}<br>
+         {{info?.edad}} Años <br>
+         {{info?.direccion}}
+      </p>
+      <p class="fw-bold">
+
+        {{info?.emailPrincipal}}<br>
+        {{info?.emailAlternativo}}<br>
+        {{info?.telefono}}
+      </p>
+      <div class="boton">
+        <button type="button" *ngIf="estalogueado()" (click)="traerItem(info?.id)" class="btn btn-outline-info"
+         data-bs-toggle="modal" data-bs-target="#modaledit-persona">
+         <i class="bi bi-pen"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- Acerca de -->
+  <div class="container info">
+    <h1>Acerca de</h1>
+    <div class=" text-end">
+      <button type="button" *ngIf="estalogueado()" (click)="traerItem(info?.id)" class="btn btn-outline-info"
+        data-bs-toggle="modal" data-bs-target="#modaledit-about">
+        <i class="bi bi-pen"></i>
+      </button>
+    </div>
+      <p class ="acercade">{{info?.about}} </p>  
+  </div>
+    
+  
 
  <!-- Modales-->
 
@@ -152,6 +173,30 @@
             <label for="" class="col-sm-2 col-form-label">Titulo:</label>
             <div class="col-sm-10">
                  <input type="text" formControlName="tituloDesarrollador" class="form-control" value="{{infoEdit?.tituloDesarrollador}}">
+             </div>
+           </div>
+           <div class="mb-3 row">
+            <label for="" class="col-sm-2 col-form-label">Email Principal:</label>
+            <div class="col-sm-10">
+                 <input type="text" formControlName="emailPrincipal" class="form-control" value="{{infoEdit?.emailPrincipal}}">
+             </div>
+           </div>
+           <div class="mb-3 row">
+            <label for="" class="col-sm-2 col-form-label">Email Alternativo:</label>
+            <div class="col-sm-10">
+                 <input type="text" formControlName="emailAlternativo" class="form-control" value="{{infoEdit?.emailAlternativo}}">
+             </div>
+           </div>
+           <div class="mb-3 row">
+            <label for="" class="col-sm-2 col-form-label">Telefono:</label>
+            <div class="col-sm-10">
+                 <input type="text" formControlName="telefono" class="form-control" value="{{infoEdit?.telefono}}">
+             </div>
+           </div>
+           <div class="mb-3 row">
+            <label for="" class="col-sm-2 col-form-label">Direccion:</label>
+            <div class="col-sm-10">
+                 <input type="text" formControlName="direccion" class="form-control" value="{{infoEdit?.direccion}}">
              </div>
            </div>
            </div>

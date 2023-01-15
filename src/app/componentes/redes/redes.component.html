@@ -1,7 +1,7 @@
 <div class="d-flex">
     <ul *ngFor="let lista of info?.listaRedes" class="nav-item">
-        <a class="nav-link active" aria-current="page" href="#"><img src="assets/imagenes/{{lista.logo}}" alt="Imagen" width="44" height="44" ></a>
-        <button type="button" *ngIf="estalogueado()"  (click)="traerItem(lista.id)"  class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#modaledit-redes" >
+        <a class="nav-link active" aria-current="page" href="{{lista.link}}"><img src="assets/imagenes/{{lista.logo}}" alt="Imagen" width="44" height="44" ></a>
+        <button type="button" *ngIf="estalogueado()"  (click)="traerItem(lista.id)"  class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#modaledit-redes" >
         <i class="bi bi-pen"></i>
         </button>
         

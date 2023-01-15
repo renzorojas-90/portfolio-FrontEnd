@@ -1,6 +1,7 @@
-<div class="row">
+
+<div class="row p-2 ">
   <div class="col-auto me-auto">
-    <h1 class="display-6">Educacion</h1>
+    <h1>Educacion</h1>
   </div>  
   <!-- boton modal-add--> 
   <div class="col-auto">
@@ -22,7 +23,7 @@
         </div>
         <div class="modal-body">
           <div class="mb-3 row">
-            <label for="" class="col-sm-2 col-form-label">Nombre carrera:</label>
+            <label for="" class="col-sm-2 col-form-label">Nombre:</label>
             <div class="col-sm-10">
                 <input type="text" formControlName="nombreCarrera" class="form-control">
              </div>
@@ -40,13 +41,13 @@
              </div>
             </div>
             <div class="mb-3 row">
-              <label for="" class="col-sm-2 col-form-label">Logo Institucion: </label>
+              <label for="" class="col-sm-2 col-form-label">Logo: </label>
               <div class="col-sm-10">
                   <input type="text" formControlName="logoInstituto" class="form-control">
                </div>
               </div>
               <div class="mb-3 row">
-              <label for="" class="col-sm-2 col-form-label">Año Graduacion: </label>
+              <label for="" class="col-sm-2 col-form-label">Fecha: </label>
               <div class="col-sm-10">
                   <input type="text" formControlName="periodo" class="form-control">
                </div>
@@ -74,32 +75,32 @@
     <div class="d-flex border p-2" >
            
             <div class="col-2">
-                      <img src="assets/imagenes/{{lista_edu.logoInstituto}}" height="30" width="50" class="img-fluid rounded-start" alt="...">
+                      <img src="assets/imagenes/{{lista_edu.logoInstituto}}" height="70" width="70" class="img-fluid rounded-start" alt="...">
             </div>
 
             <div class="col-3">
               <p>
-                Institucion : {{lista_edu.institucionNombre}} <br>
-                Carrera: {{lista_edu.nombreCarrera}} <br>
+                 {{lista_edu.institucionNombre}} <br>
+                 {{lista_edu.nombreCarrera}} <br>
               </p>
             </div>
             <div class="col-4">
               <p>
-                Graduacion: {{lista_edu.periodo}} <br>
-                Titulo : {{lista_edu.tituloEducacion}} 
+                Fecha: {{lista_edu.periodo}} <br>
+                Titulo: {{lista_edu.tituloEducacion}} 
               </p>
             </div>
 
             <!-- Button modal certificado-->
             <div class="ms-1">  
-              <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modalcod">
+              <button type="button" class="btn btn-outline-primary" (click)="TraerUnaEducacion(lista_edu.id)" data-bs-toggle="modal" data-bs-target="#modalcertificado">
                               Certificado
               </button>
             </div>
   
             <!-- Button modal editar-->        
             <div class="ms-1">
-              <button type="button" *ngIf="estalogueado()" (click)="TraerUnaEducacion(lista_edu.id)" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#modaledit" >
+              <button type="button" *ngIf="estalogueado()" (click)="TraerUnaEducacion(lista_edu.id)" class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#modaledit" >
                 <i class="bi bi-pen"></i>
               </button>
             </div>
@@ -131,7 +132,7 @@
                     <div class="modal-body">
                       <input type="hidden" class="form-control" formControlName="id">
                       <div class="mb-3 row">
-                        <label for="" class="col-sm-2 col-form-label">Nombre carrera:</label>
+                        <label for="" class="col-sm-2 col-form-label">Nombre:</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" formControlName="nombreCarrera"  value="{{editEducaciones?.nombreCarrera}}">
                         </div>
@@ -179,15 +180,15 @@
           </div>
 
       
-<!-- Modal Certificado 
-<div class="modal fade" id="modalcod">
+<!-- Modal Certificado -->
+<div class="modal fade" id="modalcertificado">
   <div class="modal-dialog">
     <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="modalcodLabel">Certificado</h1>
         </div>
         <div class="modal-body">
-          <img src="assets/imagenes/{{lista_edu.certificado}}" class="img-fluid" alt="...">
+          <img src="assets/imagenes/{{editEducaciones?.certificado}}" class="img-fluid" alt="...">
         </div> 
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
@@ -195,4 +196,4 @@
     </div>
   </div>
 </div>
--->
+

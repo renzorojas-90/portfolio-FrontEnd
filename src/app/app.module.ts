@@ -23,6 +23,7 @@ import { from } from 'rxjs';
 import { HighchartsChartModule } from 'highcharts-angular';
 import { TecnologiaService } from './servicios/tecnologia.service';
 import { GraficoComponent } from './componentes/grafico/grafico.component';
+import { FooterComponent } from './componentes/footer/footer.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { GraficoComponent } from './componentes/grafico/grafico.component';
     LoginComponent,
     PortfolioComponent,
     RedesComponent,
-    GraficoComponent
+    GraficoComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

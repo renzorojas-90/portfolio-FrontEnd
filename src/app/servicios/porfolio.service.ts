@@ -10,9 +10,9 @@ export class PorfolioService {
 
   public api : string;
 
-  //constructor(private http:HttpClient) { this.api =  "http://localhost:8080"; }
+  constructor(private http:HttpClient) { this.api =  "http://localhost:8080"; }
 
-  constructor(private http:HttpClient) { this.api =  "https://backportafolioweb.onrender.com"; }
+  //constructor(private http:HttpClient) { this.api =  "https://backportafolioweb.onrender.com"; }
 
   obtenerDatos():Observable<any>{
 

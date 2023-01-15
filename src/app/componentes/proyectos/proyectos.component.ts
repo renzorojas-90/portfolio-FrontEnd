@@ -25,6 +25,7 @@ export class ProyectosComponent implements OnInit {
       fechaRealizado :["",Validators.required],
       descripcion: ["",Validators.required],
       linkEvidencia:["",Validators.required],
+      logo:["",Validators.required]
     })
 
     
@@ -105,6 +106,7 @@ export class ProyectosComponent implements OnInit {
         fechaRealizado : data.fechaRealizado,
         descripcion: data.descripcion,
         linkEvidencia: data.linkEvidencia,
+        logo:data.logo
     
       });
     });

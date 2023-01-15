@@ -9,7 +9,9 @@ import Swal from 'sweetalert2';
 })
 export class AutenticacionService {
 
-  url='https://backportafolioweb.onrender.com';
+  //url='https://backportafolioweb.onrender.com';
+  url='http://localhost:8080';
+
   currentUserSubject: BehaviorSubject<any>;
 
   obtenerSecion:any;

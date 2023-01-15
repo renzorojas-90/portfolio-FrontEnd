@@ -1,6 +1,6 @@
-<div class="row">
+<div class="row tecno  p-2">
    <div class="col-auto me-auto">
-     <h1 class="display-6">Tecnologias</h1>
+     <h1>Tecnologias</h1>
    </div>
    <!-- boton modal-add--> 
    <div class="col-auto">
@@ -9,6 +9,7 @@
      </button>
    </div>
  </div>
+
  <!--modal-add-tecnologias-->
  <div class="modal fade" id="modal-add-tecnologia" tabindex="-1">
    <div class="modal-dialog">
@@ -48,25 +49,48 @@
    </div>
    
  </div>
- <hr>
+ 
+
+<!--
+<div class="container">
+  <div class="row"  >
+    <div class="col-3 mt-3 d-flex" *ngFor=" let lista of info?.listaTecnologia">
+        <app-grafico 
+        valor="{{lista.gradoDominio}}" 
+        nombre="{{lista.nombreTecno}}" >
+      </app-grafico>
+        <div>
+        <button type="button" *ngIf="estalogueado()" (click)="traerItem(lista.id)" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#modaledit-tecnologia" >
+          <i class="bi bi-pen"></i>
+        </button>
+        <button type="button" *ngIf="estalogueado()" (click)="onEliminarItem($event,info.id,lista.id)" class="btn btn-outline-danger">
+          <i class="bi bi-x-lg"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+-->
 
 
-  
-<div class="row" >
-  <div class="col-3 mt-3 d-flex" *ngFor=" let lista of info?.listaTecnologia">
-    <app-grafico class=""  valor="{{lista.gradoDominio}}" nombre="{{lista.nombreTecno}}" ></app-grafico>
+<div class="tecno mb-5">
+  <div class="d-inline-flex flexible" *ngFor=" let lista of info?.listaTecnologia">
+    <app-grafico valor="{{lista.gradoDominio}}" nombre="{{lista.nombreTecno}}"></app-grafico>
     <div>
-      <button type="button" *ngIf="estalogueado()" (click)="traerItem(lista.id)" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#modaledit-tecnologia" >
+      <button type="button" *ngIf="estalogueado()" (click)="traerItem(lista.id)" class="btn btn-outline-info"
+        data-bs-toggle="modal" data-bs-target="#modaledit-tecnologia">
         <i class="bi bi-pen"></i>
       </button>
-      <button type="button" *ngIf="estalogueado()" (click)="onEliminarItem($event,info.id,lista.id)" class="btn btn-outline-danger">
+    </div>
+    <div>
+      <button type="button" *ngIf="estalogueado()" (click)="onEliminarItem($event,info.id,lista.id)"
+        class="btn btn-outline-danger">
         <i class="bi bi-x-lg"></i>
       </button>
     </div>
   </div>
 </div>
 
-    
 
 
 
