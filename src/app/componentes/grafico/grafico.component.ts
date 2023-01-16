@@ -29,7 +29,7 @@ export class GraficoComponent implements OnInit {
           data: [
             {
               y : aux,
-            name: "conocido",
+            name: "Conocido",
             color: "#BE2020",
             
             },

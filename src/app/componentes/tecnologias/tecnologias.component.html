@@ -1,6 +1,6 @@
 <div class="row tecno  p-2">
    <div class="col-auto me-auto">
-     <h1>Tecnologias</h1>
+     <h1>Tecnologías</h1>
    </div>
    <!-- boton modal-add--> 
    <div class="col-auto">
@@ -17,7 +17,7 @@
       <div class="modal-content">
        <form [formGroup]="form" (ngSubmit)="onEnviarItem($event,info.id)">
          <div class="modal-header">
-           <h1 class="modal-title">Agregar Tecnologia</h1>
+           <h1 class="modal-title">Agregar Tecnología</h1>
          </div>
          <div class="modal-body">
            <div class="mb-3 row">
@@ -27,7 +27,7 @@
               </div>
            </div>
            <div class="mb-3 row">
-             <label for="" class="col-sm-2 col-form-label">logo: </label>
+             <label for="" class="col-sm-2 col-form-label">Logo: </label>
              <div class="col-sm-10">
                  <input type="text" formControlName="logoTecno" class="form-control">                                   
              </div>
@@ -102,13 +102,13 @@
        <div class="modal-content">
         <form [formGroup]="form" (ngSubmit)="editarItem($event)">
           <div class="modal-header">
-            <h1 class="modal-title">Editar Tecnologia</h1>
+            <h1 class="modal-title">Editar Tecnología</h1>
           </div>
           
           <div class="modal-body">
             <input type="hidden" class="form-control" formControlName="id">
             <div class="mb-3 row">
-              <label for="" class="col-sm-2 col-form-label">Nombre Tecnologia:</label>
+              <label for="" class="col-sm-2 col-form-label">Tecnología:</label>
               <div class="col-sm-10">
                   <input type="text" class="form-control" formControlName="nombreTecno"  value="{{infoEdit?.nombreTecno}}">
               </div>

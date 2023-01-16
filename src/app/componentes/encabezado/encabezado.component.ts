@@ -110,7 +110,7 @@ export class EncabezadoComponent implements OnInit {
     Swal.fire({
       position: 'top',
       icon: 'success',
-      title: 'Guardado con Exito',
+      title: 'Guardado con Éxito',
       showConfirmButton: false,
       timer: 2000
     })

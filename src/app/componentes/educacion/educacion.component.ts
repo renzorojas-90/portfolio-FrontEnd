@@ -69,13 +69,13 @@ export class EducacionComponent implements OnInit {
     event.preventDefault;
     
     Swal.fire({
-      title: 'Estas Seguro?',
-      text: "No Podras Revertirlos los Cambios!",
+      title: 'Estás Seguro?',
+      text: "No podrás revertir los cambios!",
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Si, Eliminar!'
+      confirmButtonText: 'Sí, eliminar!'
     }).then((result) => {
       if (result.isConfirmed) {
         this.datosPorfolio.eliminarEducacion(educacion,persona).subscribe(data =>{
@@ -83,7 +83,7 @@ export class EducacionComponent implements OnInit {
         });
         Swal.fire(
           'Borrado!',
-          'El Item Ha Sido ELiminado.',
+          'El ítem ha sido éliminado.',
           'success'
         )
       }
@@ -124,7 +124,7 @@ export class EducacionComponent implements OnInit {
     Swal.fire({
       position: 'top',
       icon: 'success',
-      title: 'Guardado con Exito',
+      title: 'Guardado con Éxito',
       showConfirmButton: false,
       timer: 2000
     })

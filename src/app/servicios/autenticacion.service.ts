@@ -58,8 +58,8 @@ export class AutenticacionService {
   mensajexito(){
     Swal.fire({
       icon: 'success',
-      title: 'Autenticado con Exito',
-      text: 'Habilitado para la Edicion',
+      title: 'Autenticado con Éxito',
+      text: 'Habilitado para la Edición',
       
     })
   }
@@ -67,7 +67,7 @@ export class AutenticacionService {
     Swal.fire({
       icon: 'error',
       title: 'Oops...',
-      text: 'Credenciales Invalidas!',
+      text: 'Credenciales Inválidas!',
       
     })
   }

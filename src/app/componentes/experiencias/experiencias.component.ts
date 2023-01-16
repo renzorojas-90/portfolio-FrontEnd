@@ -63,13 +63,13 @@ export class ExperienciasComponent implements OnInit {
   onEliminarItem(event: Event,idpersona: any,idItem: any){
     event.preventDefault;
     Swal.fire({
-      title: 'Estas Seguro?',
-      text: "No Podras Revertirlos los Cambios!",
+      title: 'Estás Seguro?',
+      text: "No podrás revertir los cambios!",
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Si, Eliminar!'
+      confirmButtonText: 'Sí, eliminar!'
     }).then((result) => {
       if (result.isConfirmed) {
         this.dataService.eliminarItem(idpersona,idItem).subscribe(data =>{
@@ -77,7 +77,7 @@ export class ExperienciasComponent implements OnInit {
         });
         Swal.fire(
           'Borrado!',
-          'El Item Ha Sido ELiminado.',
+          'El ítem ha sido éliminado.',
           'success'
         )
       }
@@ -116,7 +116,7 @@ export class ExperienciasComponent implements OnInit {
     Swal.fire({
       position: 'top',
       icon: 'success',
-      title: 'Guardado con Exito',
+      title: 'Guardado con Éxito',
       showConfirmButton: false,
       timer: 2000
     })
